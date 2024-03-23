@@ -9,7 +9,7 @@ Trust starts at a hardware level
 - **Hardware Security Module (HSM)**
 - These are difficult to change or avoid for attackers 
 
- **Trusted Platform Module (TPM: 
+ **Trusted Platform Module (TPM)**: 
  Hardware chip that helps with encryption functions 
  - can be installed separately or integrated into the motherboard
  - processes RNG, and key generation 
