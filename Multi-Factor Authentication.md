@@ -1,0 +1,49 @@
+- ***AAA framework***
+	- **Identification**:
+		- Who you claim to be ie username
+	- **Authentication**:
+		- Prove you are who you say you are
+		- password/auth factors
+	- **Authorization**
+		- what specifically should you be able to access
+	- **Accounting**:
+		- keeping logs of who is accessing what
+
+- **Cloud vs on-prem authentication**:
+	- **Cloud based security**
+		- Third party can manage
+		- central
+		- automation possible
+	- **On-prem:**
+		- Internal monitoring and management
+		- need experts
+		- External access must be granted and managed
+
+- **Multi-factor Auth**:
+	- **Factors**:
+		- Something you know
+			- Passwords
+			- PIN
+		- something you have
+			- smart card
+			- USB token
+			- hardware or software tokens
+			- your phone
+		- something you are
+			- Typically [[Biometric Authentication]]
+	- **Attributes**
+		- Somewhere you are
+			- Based on location 
+			- IP address
+				- Works with IPv4 not IPv6
+				- Easy to get around with VPN 
+			- Mobile device GEO location
+				- Can be spoofed
+		- something you can do
+			- Handwriting
+				- Signature
+				- Writing Technique
+		- something you exhibit
+			- A unique trait to you 
+			- [[Biometric Authentication#^1960c1|Gait Analysis]]
+		- someone you know

@@ -1,0 +1,26 @@
+Embedded systems are not a fully capable computer, they're built for a single purpose and at a lower cost 
+
+- limited features 
+- hard to upgrade 
+- few options for communicate 
+- Power:
+	- may not access main power source 
+	- Batteries may need replacement
+- Compute:
+	- lower power CPUs limit speed
+	- though they may produce less heat
+- Network:
+	- May not be able to wire due to hardware or geographic limits 
+	- Wireless can also limit bandwidth 
+- Crypto:
+	- Weak CPUs make encryption difficult 
+- Can be difficult to patch or install new firmware 
+- Authentication
+	- limits on compute make secure authentication a challenge 
+- Range: 
+	- additional functionality beyond the intended use is likely not possible
+- Cost:
+	- Will be cheaper since its purpose built
+	- this can affect quality though 
+- Trust:
+	- limited hardware/software access makes security audits hard
