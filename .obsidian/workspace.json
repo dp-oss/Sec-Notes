@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Wireless Authentication Protocols.md",
+                "file": "Wireless Cryptography.md",
                 "mode": "source",
                 "source": false
               }
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Wireless Authentication Protocols.md",
+                "file": "Wireless Cryptography.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Wireless Authentication Protocols.md",
+                "file": "Wireless Cryptography.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Wireless Authentication Protocols.md"
+                "file": "Wireless Cryptography.md"
               }
             }
           }
@@ -169,11 +169,13 @@
   },
   "active": "c1837ee99fe96a35",
   "lastOpenFiles": [
-    "Wireless autehntication methods.md",
     "Wireless Authentication Protocols.md",
-    "Wireless autehntication methods.md~",
     "Wireless Authentication Methods.md",
+    "Wardriving.md",
     "Wireless Cryptography.md",
+    "Secure Protocols.md",
+    "Wireless autehntication methods.md",
+    "Wireless autehntication methods.md~",
     "Wireless Cryptography.md~",
     "Wireless autehntication methods",
     "Cryptography Uses.md",
@@ -196,8 +198,6 @@
     "Secure Coding Techniques.md",
     "Steganography.md",
     "Redundancy.md",
-    "Load Balancing.md",
-    "Network Redundancy.md",
     "Untitled.canvas",
     "logseq/bak/logseq/custom/2024-01-08T21_10_51.786Z.Desktop.css",
     "logseq/bak/logseq/custom",

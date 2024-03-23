@@ -1,8 +1,3 @@
----
-id: Wireless Cryptography
-aliases: []
-tags: []
----
 
 - users need to be authenticated before connecting to a wireless network 
 - all data transmitted wirelessly needs to be encrypted 

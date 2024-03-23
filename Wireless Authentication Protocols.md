@@ -1,8 +1,3 @@
----
-id: Wireless Authentication Protocols
-aliases: []
-tags: []
----
 
 EAP: Extensible Authentication Protocol 
 - Many different ways to authenticate
