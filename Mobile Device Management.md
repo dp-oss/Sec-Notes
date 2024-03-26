@@ -1,13 +1,14 @@
 ---
 id: Mobile Device Management
 aliases: []
-tags: []
+tags:
+  - Mobile-Devices
 ---
 
 ## Mobile Device Management (MDM)
 
 Manage company and user owned devices 
-- many companies have a BYOD bring your own Device
+- many companies have a BYOD bring your own Device ^112b2d
 - Policies on applications and data
 - Can control the entire device or merely a partition
 - can set rules for access like pin code or screen lock 
@@ -87,3 +88,5 @@ Encrypting the entire mobile device
 - backup decryption keys 
     - often backed up to the MDM 
 
+[[Mobile Device Security]]
+[[Mobile Device Enforcement]]

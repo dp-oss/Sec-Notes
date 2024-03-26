@@ -58,4 +58,4 @@ Domain Name resolution (DNS) ip translating to domain name
 
 **Sensors and collectors**: aggregate network info in one place 
 - logs are collected on each device ie firewall, ids/ips (sensor) and aggregated by the collector 
-- can be sent to SIEM
+- can be sent to [[SIEM|SIEM]]
