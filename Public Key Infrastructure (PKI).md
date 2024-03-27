@@ -4,6 +4,7 @@ aliases:
   - Public Key Infrastructure (PKI)
 tags:
   - Cryptography
+  - PKI
 ---
 
 # Public Key Infrastructure (PKI)

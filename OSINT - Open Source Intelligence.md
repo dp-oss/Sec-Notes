@@ -1,4 +1,4 @@
-Gathering information about a target through publicly availible sources 
+Gathering information about a target through publicly available sources 
 
 These can include: 
 - social media/forums
