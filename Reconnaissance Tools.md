@@ -4,6 +4,7 @@ aliases:
   - Reconnaissance Tools
 tags:
   - Reconnaissance
+  - Tools
 ---
 
 # Reconnaissance Tools
