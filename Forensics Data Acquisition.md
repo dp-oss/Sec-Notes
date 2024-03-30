@@ -8,7 +8,7 @@ tags: []
 # Forensics Data Acquisition
 Aquiring data for forensic investigations 
 
-( see [[1711654258-EIBL|forensic Tools]] for more specifc details on data collection tools ) 
+( see [[Forensic Tools]] for more specifc details on data collection tools ) 
 
 ## Order of Volatility 
 Some data persists for longer than others 
