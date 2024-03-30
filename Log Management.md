@@ -71,6 +71,7 @@ Newer netflow based standard
 
 ## sFlow (Sampled Flow) 
 Only a portion of the network traffic used to gather statistics 
+- requires less resources 
 - Usually embedded in infrastructure
     - swithces
     - routers 
