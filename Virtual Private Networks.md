@@ -27,7 +27,6 @@ differ from [[Proxy Servers]]
 **Split Tunnel VPN**: Admins decide which data is sent through the concentrator 
 - for example only data intended for internal net is sent through concentrator 
 
-
 **Site to site VPN**: Use of concentrators to communicate from remote sites to the main corporate network 
 
 
