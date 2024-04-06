@@ -30,18 +30,16 @@ tags: []
 - Tailgating: 
     - entering a secure area without authorization by following somebody inside 
 - Eliciting information: 
-    =  
+    - getting a victim to give you information without realizing 
 - Whaling: 
     - Phishing that targets a specific high up individual such as the ceo 
 - Prepending:   
-    = 
+    - inserting malicious code or characters at the begining of an otherwise benign piece of software or command 
 - Identity Fraud: 
-    =
     - Using someone's Personal information to benefit yourself 
 - Invoice Scams:
     - Sending a fake bill to a company to try and get them to pay it
 - Credential Harvesting: 
-    =
     - taking login credentials to access services without authorization
 - Reconnaissance:
     - finding out information about a target, frequently done before pen testing but can also be done by attackers
@@ -54,11 +52,11 @@ tags: []
 - Typosquatting: 
     - registering domains that are similar to the domain a user would want to go to in order to carry out malicious activities such as credential harvesting
 - Pretexting
-    = 
+    - adding additional context to a conversation to make lies more convincing
 - Influence Campaigns:
     - a targeted exrcise used to manipulate peoples thinking
     - Hybrid Warfare: 
-        =
+        - warefare involving means other than kinetic, such as political, cyber, etc.
     - Social media:
         - influence campaigns using public social media platforms can be wide reaching 
 - **Principles(Reasons for Effectiveness)**
@@ -85,8 +83,7 @@ tags: []
     - Potentially unwanted programs (PUPs): 
         - software not installed intentionally could be benign or malicious 
     - Fileless virus: 
-        = 
-        - virus that lives in memory 
+        - a virus that never installs itself on your machine 
     - Command and control: 
         - server used to control infected machines known as bots somtimes called a C2 
     - Bots: 
@@ -128,3 +125,12 @@ tags: []
         - taking stolen card information and writing it to another card to be used by the attacker 
     - Skimming: 
         - devices planted on card readers to steal information off of cards to be cloned later
+- **Adversarial Artificial Intelligence (AI)**:
+    - Tainted training data for machine learning (ML):
+        - malicious data added to a training set to have the machine learning model behave in unexpected ways
+    - Security of machine learning algorithms:
+        - ensure all data going into the machine is legitimate, frequently re-train to test new data
+- **Supply chain attacks**:
+    - attacking somewhere in the process that it takes to create a product or provide a service to infect a target down the line
+- **Cloud based vs on premises attacks**:
+    - 
