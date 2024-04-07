@@ -133,4 +133,46 @@ tags: []
 - **Supply chain attacks**:
     - attacking somewhere in the process that it takes to create a product or provide a service to infect a target down the line
 - **Cloud based vs on premises attacks**:
-    - 
+    - Cloud computing solutions are more exposed because they're accessed over the internet, on-premises solutions require you to be responsible for the physical security of your devices. Changes can be rolled out more quickly in the cloud but take time on premises
+- **Cryptographic Attacks**:
+    - Birthday:
+        - When you have 30 people in a room the liklihood that two share a birthday is 70%, a birthday attack compares all common values to find hash collisions 
+    - Collision:
+        - every value that is hashed should have a unique message digest, a collision is when two different values share the same message digest
+    - Downgrade:
+        - Convincing one side of a conversation to use less secure cryptography
+### Given a scenario, analyze potential indicators associated with application attacks
+- **Privelege Escalation**: 
+    - attacks that aim to increase the level of access the attacker has to a system, after initial breach
+- **Cross-site Scripting**:
+    - Attacks using malicious scripts in a victims browser to steal information such as tokens from other webpages
+- **Injections**:
+    - attacks that use an input field to execute code onthe target website or application
+    - Structured query Language (SQL):
+        - injecting an sql query into an input field to get information from a database
+        - inputting: "105 OR 1=1" into the input field would execute the SQL query: ``SELECT * FROM Users WHERE UserId = 105 OR 1=1;``
+    - Dynamic-link library (DLL):
+        - DLLs are libraries used in Windows, injecting a DLL into a different application can allow for the functions from that library to be run with the Privelege of the other application 
+    - Lightweight Directory Access Protocol(LDAP):
+        - LDAP is used to access resources on a network,injecting LDAP queries can be used to return files that the user may not be authorized to access
+    - Extensible Markup Language(XML):
+        - XML is used to transfer and store data, injecting malicious XML can be used to allow access to unauthorized data
+- **Pointer/object Dereference**:
+    - an attack that forces an application to point to an area of memory where nothing exists, causing the application to crash
+- **Direcroty Traversal**:
+    - Changing the address of a website to request otherareas of the server that you may not be able to access
+- **Buffer Overflow**:
+    - Causing an application to write to much data to an area of memory, resulting in the data to spill over to other areas and cause unexpected behaviors 
+- **Race Conditions**:
+    - when multiple things occur at the same time applications can behave unexpectedly which attackers can use to their advantage
+    - Time of check/time of use (TOCTOU):
+        - making changes to something an application may need after it is checked by the app but before it is used, causing the app to behave unexpectedly 
+- **Error Handling**:
+    - application error messages can be too verbose and provide an attacker with too much information
+    - applications need to properly handle errors as not to give an attacker more access in the event of an error
+- **Improper Input Handling**:
+    - input that is not sanitized or normalized in an application can be used to inject code into the data stream (injection attack) or cause other unexpected behaviors
+- **Replay Attack**:
+    - when an attacker captures a users traffic and sends it on to the server to appear that it's coming from the user
+    - Session Replays:
+        - 
