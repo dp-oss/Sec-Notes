@@ -438,3 +438,62 @@ tags: []
         - Falling victim to an attack can lead to a loss of reputation for an organization and decrease the trust consumers will have in the future, this can also influence stock prices if the company is traded publicly 
     - Availibility Loss:
         - if an attack rendors users unable to access their services a company can lose profits, reputation, etc.
+### 1.7 Summarize the techniques used in security assessments 
+- **Threat Hunting**:
+    - Intelligence Fusion:
+        - Aggregating intelligence from multiple sources and using tools to analyze trends in the data 
+    - Threat feeds:
+        - active advisements of the current threat landscape, what attackers are out there and what vulnerabilities they're exploiting
+    - Advisories and bulletins:
+        - Urgent security updates delivered in a standard place
+    - Maneuver:
+        - taking action to avoid security concerns 
+- **Vulnerability Scans**:
+    - False positives:
+        - Something marked as a vulnerability to be investigated, but actually is benign
+    - False Negatives:
+        - Something marked as being safe that is actually a vulnerability
+    - Log Reviews:
+        - reviwing log reporting to locate threats 
+    - Credentialed vs Non-credentialed:
+        - scanning from the point of view of someone who doesn't have internal accecss to the network is Non-credentialed
+        - scanning from inside the netwrok is Credentialed
+    - Intrusive vs Non-intrusive:
+        - Scans that only look to see what's open on the network without affecting operation is called Non-intrusive
+        - something that has the potential to dirsupt operations would be konwn as intrusive like a penetration test
+    - Application:
+        - A vulnerability scan within the scope of a single application
+    - Web Application:
+        - vulnerability scan within the scope of an active web application
+    - Network:
+        - Vulnerability scan within the scope of an entire network, will include things like what ports are open and what services are running on those ports
+    - Common Vulnerabilities and Exposures(CVE)/Common Vulnerability Scoring System (CVSS):
+        - CVE is the most popular database of vulnerabilities that have been reported this is run by the MITRE coorperation
+        - CVSS is the scoring system used to rank vulnerabilitiesbased on severity, this rating is given from 0 being least severeto 10 being most severe
+- **Syslog/Security Information Event Management (SIEM)**: 
+    - Syslog:
+        - standard for sending log files to a SIEM
+    - SIEM:
+        - a single database that aggregates security data to be analyzed
+    - Review Reports:
+        - Its important to review all security reports to determine if there is a vulnerability or an active threat 
+    - Packet Capture:
+        - Network Packets can be captured and sent to the SIEM to be analyzed 
+    - Data Inputs:
+        - sources of data that can be sent to a SIEM 
+    - User Behavior Analysis:
+        - It's important to analyze user behavior to find changes to patterns that can indicate an attack on that user's account 
+    - Security Monitoring:
+        - people in a SOC will monitor SIEMs for security events to be able to respond to events as they occur
+    - Log Aggregation:
+        - Inputting data from all different system logs to analyze in the SIEM, an essential function of a SIEM 
+    - Log Collectors:
+        - A part of the SIEM that waits for syslog messages to input data 
+- **Security Orchestration, Automation, and Response (SOAR)**:
+    - Orchestration:
+        - Managing many devices in a unified way
+    - Automation:
+        - Setting up systems to respond to events themselves
+    - Response:
+        - through the use of Orchestration and Automation we can respond to Security events quickly and at machine speed
+
