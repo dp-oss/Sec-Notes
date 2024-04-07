@@ -69,11 +69,11 @@ tags: []
     - Scarcity: 
         - convincing someone to act quickly something finite is going to run out 
     - Trust: 
-        - convincing target that you are trustworthyin order to encourage the action 
+        - convincing target that you are trustworthy in order to encourage the action 
     - Urgency: 
         - convincing target that the action needs to be taken as soon as possible to prevent them from analyzing the request
 
-### Given a scenario, analyze potential indicators to determine the type of attack
+### 1.2 Given a scenario, analyze potential indicators to determine the type of attack
 - **Malware**: 
     - malicious software, not installed intentionally
     - Trojans: 
@@ -141,7 +141,7 @@ tags: []
         - every value that is hashed should have a unique message digest, a collision is when two different values share the same message digest
     - Downgrade:
         - Convincing one side of a conversation to use less secure cryptography
-### Given a scenario, analyze potential indicators associated with application attacks
+### 1.3 Given a scenario, analyze potential indicators associated with application attacks
 - **Privelege Escalation**: 
     - attacks that aim to increase the level of access the attacker has to a system, after initial breach
 - **Cross-site Scripting**:
@@ -198,3 +198,171 @@ tags: []
         - adding extra code into operating system shims or areas where information is stored between OS components to run the codewithout detection  
     - Refactoring:
         - manipulating the driver in a way that it still appears to behave the same on the users end but actually has hidden malicious functions
+- **Pass the Hash**:
+    - an attack where in place of the password the attacker sends the hash of a password to authenticate
+### 1.4 Given a scenario, analyze potential indicators associated with network attacks
+- **Wireless**:
+    - Evil twin:
+        - A malicious wireless access point with the same SSID as the actual access point designed to steal credentials
+    - Rogue Access Point:
+        - An unauthorized access point added to the network
+    - Bluesnarfing:
+        - bluetooth attack where the attacker can access data from a target over bluetooth
+    - Bluejacking:
+        - Unsolicited messages sent over bluetooth
+    - Disassociation:
+        - sending deauthentication packets to kick others off of a wireless AP 
+    - Jamming:
+        - flooding the same frequencies to prevent users from acessing a wireless network
+    - Radio Frequency Identification (RFID):
+        - RFID chips broadcast a certain radio frequency to be used for a variety of purposes such as access cards, or tracking.
+        - Since this utilizes radio frequencies this is vulnerable to both jamming and capture and replay attacks
+    - Near-Field Communication (NFC):
+        - NFC is often used with mobile devices to authenticate payment as well as other smart cards. If these communiactions are sent in the clear it is vulnerable to be captured and replayed
+    - Initialization Vector (IV):
+        - A nonce or extra random numbers added to encryption keys to increase their randomness and prevent replay attacks by changing the key every time
+- **On-path attack (previously known as man-in-the-middle attack/man-in-the-browser attack)**:
+    - Attacker sits in the middle of a conversation to preform malicious activities such as capturing or manipulating traffic
+- **Layer 2 attacks**:
+    - Address Resolution Protocol (ARP) poisioning:
+        - ARP is used to communicate the hardware or MAC address of devices to other devices on the network. poisioning reffers tousing malicious ARP packets to pretend to be a different device on the network
+    - Media Access Control (MAC) flooding: 
+        - flooding the network with spoofed MAC addresses to prevent new devices from authenticating
+    - MAC cloning:
+        - changing a malicious devices MAC address to match that of a legitimate device in order to redirect traffic 
+- **Domain Name System (DNS)**:
+    - DNS is the way we translate domain names into IP addresses
+    - Domain Hijacking:
+        - Taking control over DNS resolution for a legitimate domain to redirect traffic to a malicious domain
+    - DNS Poisioning:
+        - Locally changing a DNS resolver to send users looking for a legitimate site to a malicious one
+    - Uniform Resource Locator (URL) redirection:
+        - having a specific URL resolve to a different URL, commonly used to redirect HTTP to HTTPS but can also be used by attackers
+    - Domain Reputation:
+        - The trustworthiness of a domain usually for email, if alot of people indicate a domain is sending spam it will lose reputation and be blocked by email providers automatically
+- **Distributed denial-of-service (DDoS)**:
+    - Flooding a service with requests from multiple machines to prevent it from functioning, commonly done with a botnet
+    - Network DDoS:
+        - Sending a mass of packets over the network using many machines to disrupt service 
+    - Application:
+        - Flooding an application with data to disrupt its function
+    - Operational Technology (OT):
+        - OT reffers to industrial equipment, DOS on OT enviornments would be disrupting the function of things like traffic lights or the powergrid 
+- **Malicious Code or Script Execution**:
+    - PowerShell:
+        - Windows PowerShell is the advanced terminal applicationin Windows, can allow for control over things such as active directory or premissions on a windows system. Powershell scripts will have a `.ps1` extension
+    - Python:
+        - Python is a powerful and functional scripting language with a wide array of legitimate uses such as data analytics, however python scripts can easily be malicious and should be treated with caution and analyzed. Python scripts will have a `.py` extension
+    - Bash:
+        - Born again shell or Bash is a widely used shell in many linux systems. Scripts in this language can be used to effectively automate many Linux commands and Functions but can also be malicious. bash scripts will have a `.sh` extension
+    - Macros:
+        - Function in a specific program to record keypresses and functions to be played back later, while these can help automate repetitive tasks, they are frequently used maliciously by attackers to execute commands. 
+    - Visual Basic for Applications (VBA):
+        - Microsoft Office language for recording macros. Often a malicious Powerpoint, Word Document, or Excel Spreadsheet, will contain macros written in VBA that can execute commands on a windows system
+### 1.5 Explain different threat actors, vectors, and intelligence sources
+- **Actors and Threats**:
+    - Advanced Persistent threat (APT):
+        - Threat actor that stays on a system for a significant period of time, waiting for the right time to exploit. frequently associated with State Actors 
+    - Insider Threats: 
+        - An insider in the organization that poses a threat to security. often associated with a disgruntled employee
+    - State Actors: 
+        - Threat actors working for a countries government
+    - Hacktivists:
+        - Threat actors who hack for social, and political reasons, not for money
+    - Script Kiddies:
+        - low level, not advanced threats, often using off the shelf exploits and not creating their own. 
+    - Criminal Syndicates:
+        - Organized criminal enterprises typically hacking for monetary gain
+    - Hackers:
+        - Authorized:   
+            - White hat hackers who preform penetration tests to asses the security posture an organization
+        - unauthorized: 
+            - blackhat hackers who do not have premission to attack their targets
+        - Semi-authorized:
+            - Grey hat hackers who may have premission to attack their targets but may also go beyond the scope of their authorization
+    - Shadow IT:
+        - Members of an organization who are not part of the IT department but may be preforming IT functions without authroization. Often don't have knowledge of the procedures, process and protocols that the IT department has to obey
+    - Competitors:
+        - Other organizations in the same field, they may seek to steal intellectual property and trade secrets 
+- **Attributes of actors**: 
+    - Internal/external:
+        - Internal threat actors have authroization and come frominside your organization, external do not work for your organization
+    - Level of sophistication/capability:
+        - The higher the level of sophistication the more advanced the attacks from a threat actor will be. All the way at the bottom would be the least advanced script kiddie using basic off the shelf attacks, all the way at the top would be Advanced Persistent threats who can remain undetected in your network for long periods of time, often leveraging attacks never seen before known as 0 day attacks 
+    - Resources/funding:
+        - the ammount of money threat actors have at their disposal 
+        - all the way at the bottom being script kiddies and hacktivists 
+        - all the way at the top being Nation States and Criminal Organizations 
+    - Intent/motivation:
+        - the reason the threat actor would target your assets
+        - script kiddies: fun/fame/maybe money
+        - Hacktivists: Social and political protest
+        - Insiders: money, anger towards organization
+        - state actors: geopolitical advantage, information
+        - Criminal Syndicates: Money 
+        - Shadow IT: may not even be targeting your organization just wanting to avoid going through IT to fix their issues 
+        - Competitors: Trade Secrets and Intellectual Property 
+- **Vectors**:
+    - Direct access:
+        Inside your organization physically accessing systems
+    - Wireless: 
+        - Close to your organization, communicating through wireless frequencies
+    - Email:
+        - targeting employees of an organization by sending emails with malicious contents or simply to social engineer them
+    - Supply Chain:
+        - Targeting sources outside your organization that your organization relies on to create products or provide services
+    - Social Media:
+        - Social Media platforms can be used to conduct Reconnaissance, attempt phishing, or general social engineering
+    - Removable Media:
+        - removable media can be used to exfiltrate data, it can also appear as benign removable media but actually be a Bad USB acting as an input device, or even a standalone computer exectuing commands or connecting back to remote servers 
+    - Cloud: 
+        - If not properly configured attacks can come into your companies cloud enviornments from the public internet 
+- **Threat Intelligence Sources**:
+    - Open-source intelligence (OSINT):
+        - intelligence that can be gathered from the public internet
+        - social media, domain names, job postings, google maps, etc.
+    - Closed/proprietary:
+        - threat information that comes at a cost, shared by intelligence providers or collected internally by your organization
+    - Vulnerability Database:
+        - database of discovered Vulnerabilities publicly availible to help organizations protect themselves 
+        - biggest one is CVE 
+    - Public/private information-sharing centers:
+        - organizations in the security industy that share information about threats
+        - private centers provide this information for a fee
+        - public provide for free
+    - Dark Web:
+        - The dark web are hidden webservices that host content illegal to host on the clear web, often times leaked data, and vulnerabilities are traded on the dark web
+    - Indicators of compromise:
+        - signs that there is a vulnerability in your organization that may have been exploited by a threat
+    - Automated Indicator Sharing (AIS):
+        - Standard for sending threat information automatically between organizations 
+        - Structured Threat Information eXpression (STIX):
+            - standardized format for sending threat information 
+        - Trusted Automated Exchange of Intelligence Information (TAXII):
+            - standard for transfering STIX data between organizations
+    - Predictive Analysis:
+        - analysis using a large ammount of data to determine where and how threats would be most likely to traget your organization before it happens
+    - Threat Maps:
+        - Literal map of what attacks are occuring over the internet and where these attacks originate from 
+    - File/Code repositories:
+        - code repositories can be used to share information about specific vulnerabilities and attack vectors but on the flip side attackers monitor code repositories to see if companies are accidentially leaking information publicly or have vulnerabilities in open source software
+- **Research Sources**:
+    - Vendor Websites:
+        - Vendors will publish security updates and advise customers to patch equipment after vulnerabilities are found
+    - Vulnerability Feeds: 
+        - A feed that can monitor what vulnerabilities can be exploited on your systems, alert you when new vulnerabilities are found, and sometimes advise you on protecting against the vulnerabilities 
+    - Conferences: 
+        - Places where security professionals will meet and share information
+    - Academic Journals:
+        - Often security researchers will publish papers in academic journals to discuss vulnerabilities and new security standards in depth
+    - Request for Comments (RFC):
+        - A formal standard for a certain security practice
+        - publicly availible
+    - Local Industry Groups:
+        - Groups in your area meeting to discuss the security landscape of your industry 
+    - Social Media:
+        - Both security professionals and attackers alike will publicly share information about security events and vulnerabilities on social media
+    - Threat Feeds:
+        - Automated feeds providing news about emerging cyber threats 
+    - Adversary tactics, techniques and procedures (TTP):
+        - specific methods, and behaviors that a certain threat will exhibit. allowing you to recognize what threat actor is targeting you
