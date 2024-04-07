@@ -496,4 +496,53 @@ tags: []
         - Setting up systems to respond to events themselves
     - Response:
         - through the use of Orchestration and Automation we can respond to Security events quickly and at machine speed
-
+### 1.8 Explain the techniques used in penetration testing 
+- **Penetration Testing**:
+    - A pen tester attempts to break into systems to
+ learn about their vulnerabilities
+    - Known Enviornment:
+        - When the pen tester is given information about the systems before going into the test
+    - Unknown enviornment:
+        - when the pen tester is given no information prior to the penetration test and approaches it as an outsider
+    - Partially known enviornment:
+        - when the pen tester is given partial information before conducting the pen test, this simulates someone who may have a little information about the system such as an insider 
+    - Rules of engagement:
+        - the scope of the penetration test, what is the pen tester allowed to attempt to break into
+    - Lateral Movement:
+        - Moving from one device to another inside of the enviornment
+    - Privilege Escalation:
+        - Increasing ones access to a system from a position of lower access
+    - Persistence:
+        - The ability of a threat to remain on a system 
+    - Cleanup:
+        - Returning everything in the enviornment to its normal state afte a pentest
+    - Bug bounty:
+        - Companies will offer bug bounties to the public to penetration test specific portions of their service, this is a reward for finding vulnerabilities or bugs
+    - Pivoting:
+        - Using a system as a jumping off point to gain access to other systems 
+**Passive and active Reconnaissance**:
+    - Passive Reconnaissance:
+        - Gaining information about a target wihtout alerting them to your presence
+    - Active Reconnaissance:
+        - Gaining information about a target in a way that may let the target know they're being scoped out
+    - Drones:
+        - Small remotely manned aircraft equiped with cameras and sensors to collect information from a birds eye view
+    - War Flying:
+        - Using a drone to map SSIDs of wireless networks from above
+    - War Driving:
+        - driving around and scanning SSIDs to map out wireless networks in an area
+    - Footprinting:
+        - Developing an understanding of what devices exist on a network 
+    - OSINT:
+        - Open source intelligence, gathering information from publicly availible sources 
+- **Exercise Types**:
+    - Red-team:
+        - The attacker in a simulated scenario, they look for vulnerabilities in an organization
+    - Blue-team:
+        - the defender in a simulated scenario, they try to secure the assests and defend them from attack
+    - White-team:
+        - Manages both teams, determines what was learned from an exercise
+    - Purple-team:
+        - preforms actions both attacking and defending, if they find a vulnerability they also attempt to close it
+## 2.0 Architecture and Design
+### 2.1 Explain the importance of security concepts in an enterprise environment
