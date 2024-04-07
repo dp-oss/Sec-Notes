@@ -160,7 +160,7 @@ tags: []
 - **Pointer/object Dereference**:
     - an attack that forces an application to point to an area of memory where nothing exists, causing the application to crash
 - **Direcroty Traversal**:
-    - Changing the address of a website to request otherareas of the server that you may not be able to access
+    - Changing the address of a website to request other areas of the server that you may not be able to access
 - **Buffer Overflow**:
     - Causing an application to write to much data to an area of memory, resulting in the data to spill over to other areas and cause unexpected behaviors 
 - **Race Conditions**:
@@ -175,4 +175,26 @@ tags: []
 - **Replay Attack**:
     - when an attacker captures a users traffic and sends it on to the server to appear that it's coming from the user
     - Session Replays:
-        - 
+        - using an active session ID to pose as a user  
+- **Integer Overflow**:
+    - Placing a large number into a smaller area of memory causing it to overflow into another section of memory
+- **Request Forgeries**:
+    - taking advantage of a website requesting information from another site for an attack
+    - Server-side request Forgeries (SSRF):
+        - attacker sends specific packets to a server requesting it to preform specific actions on behalf of the attacker
+    - Cross-site Request Forgeries (CSRF or XSRF):
+        - takes advantage of the trust that sites have in your browser, the attacker can create requests on a victims behalf posing as the victim
+- **Application Programming Interface (API) attacks**:
+    - APIs are used for other developers to have their applications interact with the application. APIs that are too permisive can be exploited maliciously to gain access to data without authorization
+- **Resource Exhaustion**:
+    - Denial of Service (DOS) attack that uses an application to use up all of the computing resources causing the target to become unresponsive
+- **Memory Leak**:
+    - When an application doesn't free up unused memory the memory of the system is continually used up until it's no longer usable
+- **Secure Sockets Layer (SSL) stripping**: 
+    - on path attack where the attacker sits in the middle of a conversation between a victim and a web server, forcing the victim to communicate with them in the clear and then encrypting the traffic and sending it to the web server. This way it looks to the user that the server is communicating unencrypted and to the server that the user is using encryption
+- **Driver Manipulation**:
+    - drivers are what's used to communicate with a computer's hardware, manipulating drivers can allow attackers to exploit portions of the system or operating system
+    - Shimming:
+        - adding extra code into operating system shims or areas where information is stored between OS components to run the codewithout detection  
+    - Refactoring:
+        - manipulating the driver in a way that it still appears to behave the same on the users end but actually has hidden malicious functions
