@@ -546,3 +546,191 @@ tags: []
         - preforms actions both attacking and defending, if they find a vulnerability they also attempt to close it
 ## 2.0 Architecture and Design
 ### 2.1 Explain the importance of security concepts in an enterprise environment
+- **Configuration Management**:
+    - Diagrams: 
+        - A physical representation of your enviornment including the devices connected 
+    - Baseline Configuration:
+        - the 'normal' congiguration before changes are applied
+    - Standard Naming Conventions:
+        - it's important to have standards for naming devices on the network so all IT personnel can understand what devices are connected in the enviornment just by reading the names 
+    - Internet Protocol (IP) schema:
+        - IP addresses that are assigned by the IT department should be done so in a standardized way to make it easier to determine what device is what based on it's IP address 
+- **Data Soverignty**:
+    - The right to access and control one's own datathis is dependent on geographical location, the GDPRin the EU for example protects citizens data Soverignty
+- **Data Protection**:  
+    - Data Loss Prevention (DLP):
+        - Systems on the network that can prevent specific data from leaving the network 
+    - Masking:
+        - Covering up portions of data to keep it private, like replacing credit card numbers with stars on a receipt 
+    - Encryption:
+        - Encryption is a means of taking data that is human or machine readable and making it unreadable
+        - we call readable data plain text
+        - and unreadable ciphertext
+        - encryption is a two way process, to turn ciphertext back into plain text you will need an encryption key this key is mathemattically significant and used by encryption algorithms to scramble to data so that it can only be unscrambled by the same key
+    - At rest:
+        - data at rest reffers to data that is in storage and not currently being acted upon
+    - In transit/motion
+        - data in transit is data that is being transfered from one place to another usualy over the network 
+    - In processing:
+        - data in processing reffers to data that is currently being acted upon, usually this data is loaded into a devices RAM 
+    - Tokenization:
+        - This reffers to taking private data and replacing it with an pseudonymous identifier which acts as a place holder.
+        - the placeholder is just a stand in to avoid the actual private data from being used
+        - the placeholder is not mathemattically connected to the original data 
+    - Rights Management:
+        - protection over the use of proprietary data 
+- **Geographical Considerations**:
+    - Geographical location plays a significant role in how you manage security decisions in an organization
+    - different countries and territories will have different regulations regarding data, and security standards
+    - the GDPR is a big one in the EU which puts limits on what an organization can do with data collected from EU citizens like it cannot leave the EU 
+- **Response and recovery controls**:
+    - Tools that allow security professionals to respond to security events and recover from them 
+- **Secure Sockets Layer(SSL)/Transport Layer Security (TLS) inspection**:
+    - to monitor traffic organizations will decrypt encrypted web traffic to ensure it is not malicious then re-encrypt the traffic and send it to its intended destination
+- **Hashing**:
+    - Hashing is the process of representing data as a fixed length message digest
+    - no two inputs should output produce the same message digest otherwise this is called a collision
+    - hashing is a one way mathematical function meaning you cannot derrive the original data from the message digest 
+    - hashing can help verify integrity because a changed input will result in a changed message digest
+- **API Considerations**:
+    - Application programming interfaces need to be managed securely so that they are not permitting attackers to exploit them to gain access to systems and data through malicious API calls 
+- **Site Resiliency**:
+    - Hot Site:
+        - a backup site that has everything needed to maintain the functionality of the main site
+    - Cold Site:
+        - a backup site that doesn't any of the infrastructure to maintain the functionality of the main site, usually just a location that the organization can move to
+    - Warm Site:
+        - A backup site that has some of the infrastructure to resume the normal functionality of the main site 
+- **Deception and Disruption**:
+    - Honeypots:
+        - A trap that is set for attackers to catch them in the act 
+    - Honeyfile:
+        - A specific file or data point that is set as a trap inetentionally for attackers to take, if you see this honeyfile appear on the web you know someone fell for the bait
+    - Honeynet:
+        - an intentionally vulnerable network setup to trick attackers 
+    - Fake telemetry:
+        - fake telemetry data designed to lure in attackers and catch them
+    - DNS sinkhole:
+        - Setting up a DNS resolver to resolve known malicious domains to benign sites in order to stop users from visiting them 
+### 2.2 Summarize Virtualization and Cloud Computing Concepts 
+- **Cloud Models**:
+    - Infrastructure as a service (IaaS):
+        - computing hardware provided for a fee that can be accessed over the internet
+    - Platform as a Service (PaaS):
+        - a platform to develop applications provided for a fee that can be accessed over the internet 
+    - Software as a Service (SaaS): 
+        - An full application that is provided for a fee over the internet 
+    - Anything as a Service (XaaS):
+        - reffers to anything that is provided for a fee over the internet 
+    - Public Clouds:
+        - Cloud computing enviornment that is shared and accessible to the public  
+    - Private Clouds:
+        - Cloud computing enviornment reserved exclusively for a specific organization 
+    - Hybrid Clouds:
+        - Cloud enviornments that have some portions reserved for a specific organization while some portions are accessible to the general public 
+- **Cloud Service Providers**:
+    - Business that sells the use of it's computing hardware to people and organizations 
+- **Managed Service Provider(MSP)/Managed Security Service Provider (MSSP)**:
+    - MSP:
+        - Managed service providers remotely provide IT functions to an organization
+    - MSSP:
+        - Managed Security Service Providers remotely provide security specific functions to an organization
+- **On-premises**:
+    - Hardware under the control of your organization that resides within its facilities 
+- **Off-premises**:
+    - Hardware used by your organization that is notlocated within its facilities, can be controlled by your organization or a seperate entity 
+- **Fog computing**:
+    - Cloud model in which some of the data is processed locally on the device before being sent to the cloud 
+- **Edge computing**:
+    - Cloud model in which some of the data is processed in a centeralized location on the local network before being sent to the cloud 
+- **Thin client**:
+    - Small low power computing device used to connect to a cloud service where the actualy computing tasks are done 
+- **Containers**:
+    - Software that isolates processes and applications all running on the same main operating system. Each application is only given the resources needed because all resources are still managed by the host OS 
+- **Infrastructure as Code**:
+    - Infrastructure as code is designing the devices and services an application will need  to access before hand using code so that it can be changed and reproduced each time the application is spun up
+    - Software-defined networking (SDN):
+        - A network infrastructure  pre-defined with code to be reproducable between application instances  
+    - Software-defined visibility (SDV):
+        - security infrastructure, such as firewalls and IPS, pre-defined with code to be reproduced for different application instances 
+- **Serverless Architecture**:
+    - Applications that run in a cloud enviornment with all of the backend functions such as servers being allocated by the cloud provider on an as needed basis, for example the database wouldn't be statically running all the time, instead the resources to write to the data base would be provisioned when necessary 
+- **Servcies Integration**:
+    - A centeralized way to manage cloud enviornments running from different cloud providers 
+- **Resource Policies**:
+    - The ability to set limits on the access of cloud resources a specific user has
+- **Transite Gateway**:
+    - A router that connects users of an application or service to the right place in the cloud 
+- **Virtualization**:
+    - Virtualization is running multiple operating systems on a single set of hardware through the use of software known as a hypervisor 
+    - resources are provisioned before hand and managed by the hypervisor 
+    - Virtual Machine (VM) sprawl avoidance:
+        - VM sprawl is when too many virtual machines are running on the same hardware wasting all the resources 
+        - to prevent this we need to audit what VMs are running and if they're truly necessary 
+    - VM escapre protection:
+        - Malware can attempt to escape the isolatedvirtualized enviornment and interact directly with hypervisor
+        - it's important to closely monitor VMs for signs of an attack 
+### 2.3 Summarize secure application development, deployment, and automation concepts 
+- **Enviornment**:
+    - Development:
+        - an application being actively created 
+    - Test:
+        - testing the application and how newley created features interact with eachother 
+    - Staging:
+        - An enviornment closer to the real-world where all functions are tested using real word scenarios 
+    - Production:
+        - Production level code is ready to be shipped and used in the real world 
+    - Quality Assurance (QA):
+        - The QA teams test all features and functions of an application to before it goes into production
+- **Provisioning**:
+    - making the all the resources for an application availible 
+- **Deprovisioning**:
+    - making sure all the resources are able to be used again by something else after an application is no longer runnign 
+- **Secure Coding Techniques**:
+    - Normalization:
+        - Correcting user entered data to ensure it is in the correct format
+    - Stored Procedures:
+        - Functions that are not defined in the application itself but rather the resource it's accessing, for example instead of formulating a query in the application the query is stored in the database and called via the application to prevent code injections 
+    - Obfuscation/camouflage:
+        - Taking human readable code and turning it into something unreadable without changing it's functionality 
+    - Code reuse:
+        - code that is copied from one application to another can be a security concern because if one app is vulnerable the other is too 
+    - Dead code:
+        - code that runs in an application but doesn't do anything 
+    - Server-side vs. Client-side execution and validation:
+        - Server-side validation:
+            - input is sent to the server and then validated before executing
+        - Client-side validation: 
+            - input is validated locally in the application itself, then executed and sent to the server after 
+    - Memory management:
+        - it is important to free up memory that is no longer used, and allocate memory properly in code to prevent buffer overflows, null pointer de-reference and other memory based attacks 
+    - Use of third-party libraries and software development kits (SDKs): 
+        - it is common to use libraries and development kits not created by the language maintainers to add extra functions to a coding language, this however can introduce various risks and vulnerabilities and these third-party sources need to be heavily audited 
+    - Data Exposure:
+        - ensure that data flowing through an application is at no point exposed to a potential bad actor through things like encryption and hashing of passwords 
+- **Open Web Applicn Secruity Project (OWASP)**:
+    - Organization that helps web applications prevent common app vulnerabilities 
+- **Sofware Diversity**:
+    - Compiler:
+        - telling the compile to create the software using different paths every time to make the resulting binary file unique to each build 
+    - Binary:
+        - Unique binary files will slow attackers ability to find vulnerabilities 
+- **Automation/scripting**:
+    - Automated courses of action:
+        - automation is used to make a list of tasks repeatable and reproducible, meaning the same course of action can be repeated at machine speed 
+    - Continuous Monitoring:
+        - It can be useful to monitor a resource continually using automation so that if it reaches a certain threshhold action can be taken automatically 
+    - Continuous Validation:
+        - monitoring an application or behavior to ensure it is acting consistently 
+    - Continuous integration:
+        - automating portions of the development process so that even if new code is consistently added it is always checked for security and properly merged with exsisting code 
+    - Continuous Delivery:
+        - Automating testing and release portions of the development process 
+    - Continuous deployment:
+        - Automating the development process down tothe deployment of the application, meaning when all the automated checks are clear the app automatically is deployed to production 
+- **Elasticity**:
+    - The ability of infrastructure to scale resources up or down to handle demand placed on it by applications
+- **Scalability**:
+    - the ability of an application and its backend infrastructure to handle growing demands from increasing userbase 
+- **Version Control**:
+    - Software that can track and manage changes made to code during the application development process
