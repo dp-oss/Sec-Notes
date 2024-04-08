@@ -734,3 +734,71 @@ tags: []
     - the ability of an application and its backend infrastructure to handle growing demands from increasing userbase 
 - **Version Control**:
     - Software that can track and manage changes made to code during the application development process
+### 2.4 Summarize authentication and authorization design concepts 
+- **Authentication Methods**:
+    - Directory Services:
+        - Authentication to allow access to network storage resources 
+    - Federation:
+        - Authenticating using the credentials from one organization at another organization
+    - Attestation:
+        - attesting that hardware attempting to authenticate is trusted hardware
+    - Technologies:
+        - Time-based one-time password (TOTP):
+            - pseudo random code which is regenerated after a certain ammount of time usually 30 seconds 
+        - HMAC-based one-time password (HOTP):
+            - a list of passcodes that can be used to authenticate, after each use the password is no longer valid 
+        - Short Message Service (SMS) authentication:   
+            - authentication code sent over text messages 
+        - Token Key:
+            - a physical device that generates authentication tokens, usually small enough to fit on a keyring 
+        - Static codes:
+            - a pre-defined string of letters and numbers used to authenticate 
+        - Authentication Applications:
+            - an application that generates codes used to authenticate, usually on a users mobile device 
+        - Push notifications:
+            - a notification sent to a users mobile device that contains a code for authentication
+        - Phone call: 
+            - a user is called and authenticates with a key or code that is read over the phone 
+    - Smart card authentication:
+         - A card containing a chip usually NFC that authenticates a user
+- **Biometrics**:
+    - A physical characteristic of a user 
+    - Fingerprint:
+        - fingerprints are unique and can be used to identify users
+    - Retina:
+        - unique characteristics of the retina in a users eye are used to identify a user 
+    - Iris:
+        - unique characteristics of the iris in a users eye are used to identify a user 
+   - Facial:
+        - unique facial characterstics are used to identify a user 
+    - Voice:
+        - A users voice is used to identify a user
+    - Vein:
+        - unique vascular patterns are used to identify a user
+    - Gait analysis:
+        - the way a person walks is used to identify them
+    - Efficiency Rates:
+        - the rate at which misidentification occurs in biometrics 
+    - False Acceptance: 
+        - When a user is falsley identified as another user 
+    - False Rejection:
+        - When a user is not identified using biometrics when they should've been 
+    - Crossover error rate:
+        - the point when false rejections and false acceptances occur at the same rate
+        - this is where you want your biometric authentication to be 
+- **Multifactor Authentication (MFA) factors and Attributes**: 
+    - Factors:
+        - Something you know:
+            - Authentication using something only the user would know like a password
+        - Something you have:
+            - Authentication using something the user posseses like a phone or smart card
+        - Something you are:
+            - Authentication using something unique about the user like biometrics
+    - Attributes:
+        - Somewhere you are:
+            - Authentication based on a users physical location
+        - Something you can do:
+            - Authentication based on something only the user is capable of doing like a signature on a check 
+        - Something you exhibit:
+            - authentication using something the user does uniquely such as gait analysis 
+        - Someone you know:
