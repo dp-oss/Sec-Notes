@@ -802,3 +802,352 @@ tags: []
         - Something you exhibit:
             - authentication using something the user does uniquely such as gait analysis 
         - Someone you know:
+            - authentication based on a user knowinganother person 
+- **Authentication Authorization and Accounting (AAA)**:
+    - Authentication:
+        - Vefifying that the person trying to access a resource is who they say they are
+    - Authorization:
+        - Verifying that the person attempting to access a resource is allowed to do so
+    - Accounting:
+        - the ability to review the actions a person took while accessing a resource 
+- **Cloud vs On-premises requirements**:
+    - In cloud enviornments it is crucial to Authenticate users before access to any resource, you need to ensure that proper premissions authorize the user to access the correct resources, and logs will help account for the actions they've taken
+    - On-premises personnel needs to authenticate before accessing specific portions of the facility, we need to ensure only authorized personnel are able to access specific places in the facility, and audit who went where and accessed what 
+### 2.5 Given a scenario, implement cybersecurity resilience 
+- **Redundancy**:
+    - Geographical dispersal:
+        - It is important that key pieces of an organizations infrastructure reside in different geographic locations to avoid a single disaster taking out all functions
+    - Disk:
+        - Redundant array of independent (or inexpensive) disks (RAID) levels:
+            - RAID 0:
+                - Striping without parity, data is spread across multiple disks, not redundant, losing one drive and all the data is lost 
+           - RAID 1:
+                - Mirroring, data is duplicated across disks, if one fails the others will have it, requires twice the disk space 
+            - RAID 5:
+                - Striping with parity 
+                - 1 extra drive needed for parity and 1 extra dive needed for striping(spliting data between drives), 
+                - a single lost drive can be rebuilt using parity information 
+                - minimum of 3 drives required
+            - RAID 6: 
+                - Striping with double parity
+                - Data is split across drives with 2 drives used for parity 
+                - minimum of 4 drives required
+                - can lose up to 2 drives 
+            - RAID 10 or 1+0:
+                - Combination of RAID 1 and RAID 0, data is split between drives with striping and then mirrored across drives for redundancy
+                - requires 4 drives
+        - Multipath:
+            - multiple links from a device to a resource such as network or storage to provide redundancy and fault tolerance 
+    - Network:
+        - Load balancers:
+            - Dedicated network infrastructure to send traffic to different servers to meet demands, and provide fault tolerance 
+        - Network Interface Card (NIC) teaming:
+            -  Using multiple network interface cards on one server to allow for redundancy if one fails 
+            - may also be known as Load balancing fail over or LBFO 
+    - Power:
+        - Uninterruptible Power Supply (UPS):
+            - a secondary powersupply with a battery that will keep servers and other infrastructure powered on in the event of an outage 
+        - Generator:
+            - a machine that can take an external fuel source such as solar or gasoline and convert it to electricity to keep power to facilities in the case of an outage
+        - Dual supply:
+            - Multiple power sources connected to the same device to provide redundancy in the case that one fails 
+        - Managed Power distribution units (PDUs):
+            - a device with multiple power sources on itthat can be managed over the network, will also allow admins to see what device is drawing power and in what ammounts 
+- **Replication**:
+    - Storage Area Network (SAN):
+        - Centeralized network specifically made to store data and be accessed remotely, will have built in storage redundancy 
+    - VM:
+        - VMs can be replicated making an exact copy allowing us to make changes before rolling them out to the main machine, or copy and re-deploy the virtual machine
+- **On-premises vs cloud**:
+    - Redundancy in the cloud may be duplicating virtual machines or containers and keeping them in multiple plaes, or potentially backing up data stored on-premises in the cloud to provide more redundancy
+    - On-premises redundancy requires all essential infrastructure to have some sort of fault-tolerance to ensure functionality in the event of physical disaster 
+- **Backup Types**:
+    - Full:
+        - A backup of everything on a system 
+    - Incremental:
+        - A backup done after the full backup, each incremental backup will only backup changes since the last incremental backup 
+    - Snapshot:
+        - A copy of the state of a virtual machine 
+    - Differential:
+        - A backup of everything that has changed since the last full backup 
+    - Tape:
+        - A magnetic tape that stores backup data 
+    - Disk:
+        - Hard drive or Solid state drive stores backup data 
+    - Copy:
+        - An exact duplicate of a piece of data
+    - Network-attached Storage (NAS):
+        - Large array of storage devices that can be accessed from the networrk 
+    - Storage Area Network (SAN):
+        - Centeralized network specifically made to store data and be accessed remotely, will typically have built in storage redundancy 
+    - Cloud:
+        - backups can be stored in the cloud for access over the internet 
+    - Image:
+        - an exact copy of a machine's current state
+        - often used in forensics 
+    - Online vs Offline:
+        - Offline backup:
+            - backing up devices locally to a dedicated piece of hardware
+        - Online backup:
+            - backups that occur over the network and are constantly accessible via the network 
+    - Offsite storage:
+        - Distance Considerations:
+            - When keeping backups offsite it is important to consider the distance between sites, spreading out further can help prevent the loss of backups in the case of natural disaster but will likely increase the time it takes to restore from backups 
+- **Non-persistence**:
+    - Revert to known state:
+        - Reverting a system to a backup that is known to function properly 
+    - Last known-good configuration:
+        - the most recent backup of a system that is known to function properly
+        - windows has an option to revert any registry changes and reboot into Last known-good configuration 
+    - Live boot media:
+        - a storage drive containing a bootable operating system, can be plugged into supported hardware and run the OS directly off of the drive 
+- **High Availlability**:
+    - Scalability:
+        - The ability of a system to grow to meet demands placed upon it 
+- **Restoration order**:
+    - The order in which components of an application or system need to be restored in order to function properly 
+- **Diversity**:
+    - Technologies:
+        - Using a diverse set of technology allows for redundancy be eliminating single points failure 
+    - Vendors:
+        - A diverse set of vendors will ensure redundancy in the case that one vendor is compromised, unavailible, or otherwise fails to meet the needs of an organization 
+    - Crypto: 
+        - Crypographic algorithms will eventually be broken so using a diverse set of algorithms removes a single point of failure 
+    - Controls:
+        - Combining security controls ensures that if one control fails others will be able to prevent a threat to security. This is sometimes reffered to as defence in depth 
+### 2.6 Explain the security implications of embedded and specialized systems
+- **Embedded Systems**:
+    - Raspberry Pi:
+        - Commonly found system on a chip (SOC) contains all the necessary components for a computer to function all on one 'chip'
+    - Field-programmable gate array (FPGA):
+        - Integrated hardware that can be re-programmed after it is purchased to serve different functions 
+    - Arduino:
+        - single board micro-controller that can be easily re-programmed 
+- **Supervisory control and data acquision (SCADA)/industrial control system (ICS)**:
+    - Facilities:
+        - SCADA and ICS can be used to manage aspects of the facility that cannot be networked 
+    - Industrial:
+        - SCADA/ICS has many applications in managing industrial machinery 
+    - Manufacturing:
+        - SCADA/ICS can be used to remotely manage large scale manufacturing plant machinery like that found in an assembly line
+    - Energy:
+        - SCADA/ICS are used to monitor the power of industrial facilities and diagnose power issues on the assembly lines, as well as being applied to control the machinery in power plants 
+    - Logistics:
+        - Through the use of SCADA/ICS industrial technicians can recieve and monitor diagnostic data about industrial equipment within the facility 
+- **Internet of Things (IoT)**:
+    - Sensors:
+        - Internet connected sensors can turn on deviceslike thermostats and lights and provide data over the network
+    - Smart Devices:
+        - Smart devices are IoT devices that can be controlled over the network, typically purpose built embedded systems that are not frequently updated this can introduce security risks 
+    - Wearables:
+        - specialized systems designed to be worn by users, can provide health data, or connect to other devices wirelessly such as your phone 
+    - Facility Automation:
+        - Tasks in a facility can be automated through the use of IoT devices allowing sensors to control when a system is turned on or change a systems function based on data collected and processed by sensors 
+    - Weak Defaults:
+        - IoT devices have many vulnerabilities due to their specialized nature, one of which being weak defaults such as encryption standards that may be broken easily, or even default management credentials that are easily found on the internet 
+- **Specialized**:  
+    - Medical Systems
+        - Systems for use in applied medicine such as scanners, xrays, microscopes and more
+    - Vehicles:
+        - vehicles contain specialized systems that provide diagnostic data 
+    - Aircraft:
+        - Modern aircraft are filled with specialized systems that help control the functions of the vehicle and ensure a safe flight
+    - Smart Meters:
+        - A type of sensor that can connect to the internet allowing the data it collects to be accessible through the network or internet 
+- **Voice over IP (VoIP)**:
+    - VoIP systems transmit audio in realtime over the network 
+- **Heating, ventilation, air conditioning (HVAC)**:
+    - HVAC systems can be managed through SCADA and ICS and controlled remotely allowing changes to be made to the air temperature and filtering over the network 
+- **Drones**:
+    - Small unmanned aircraft designed to hold cameras and other sensors 
+- **Multifunction Printer (MFP)**:
+    - multi function printers can often scan, fax, print, all remotely over the network
+    - often connect using Universal Plug and Play which can open ports on your network if not configured correctly 
+- **Real-time Operating System (RTOS)**:
+    - Operating system designed with very specific timing of processes to ensure proper scheduling 
+    - necessary on vehicles and industrial equipment that would be dangerous if one process stalled the system 
+- **Surveillance Systems**:
+    - Surveillance systems like closed circuit tv (CCTV)can monitor the security of a facility sending the videoover the network for remote viewing and storage 
+- **System on a chip (SoC)**:
+    - A computer containing all the necessary parts to function on a single board or chip 
+- **Communication Considerations**:
+    - 5G:
+        - 5th generation of cellular standard capable of transfering more data quickly than previos generations, allows for more data to be transfered to and from IoT devices  
+    - Narrow-band:
+        - Wireless communication over a narrow frequencyto allow for longer  range, useful for when controlling embedded systems over a long distance 
+    - Baseband Radio:
+        - Communication sent over a single frequency, commonly used with a wired connection, commonly assosciated with ethernet connection 
+    - Subscriber Identity Module (SIM) cards:
+        - Small chip provided by a cellular provider to identify a customer this chip is inserted into a cellular device and then used to authenticate and provide access to the cellular network 
+    - Zigbee:
+        - IEEE standard for wireless communication with IoT devices, lower power and longer range than bluetooth, allows for a mesh of devices where devices use other devices as a node to route traffic to the correct location 
+- **Constraints**:
+    - Power:
+        - Powering IoT and embedded systems can be a challenge, if the system is completely wireless batteries will need to be changed, or if using wires they will need to be routed and the device will lose connectivity if the wire is disrupted 
+    - Compute:
+        - Embedded, specialized, and IoT systems often are specialized for a single task and the hardware included is not very powerful 
+    - Network:
+        - Embedded systems require network connectivity to be managed remotely, it is important to consider range, as well as frequencies that may become overcrowded if communicating wirelessly 
+    - Crypto:
+        - Since embedded systems typically lack powerful computing hardware, they struggle to preform complex cryptographic functions which can pose a security risk if they're communicating sensitive data 
+    - Inability to patch:
+        - Often times as a result of thier specialized nature Embedded and IoT devices will not recieve patches and updates and may not be able to have thier firmware updated, meaning if a vulnerability is discovered there is may not be a way to patch it 
+    - Authentication:
+        - Authenticating IoT and embedded devices is a challenge, because of the lack of strong cryptography and low compute, it may be easy for an attacker to access one of these systems 
+    - Range:
+        - range is an important consideration when installing an embedded system, if it is wired you will need enough cable to connect it to the network, if it is wireless you will need to ensure that you can communicate the necessary distance wirelessly without interuption 
+    - Cost:
+        - Since embedded systems are low cost devices, they lack compute, may not be supported by manufacturers, and may not have the most durable components 
+    - Implied Trust:
+        - embedded systems should never be implicitly trusted on the network due to thier constraints in patching, compute and crypto, authenticating the devices properly is important to ensure they aren't a point of access for attackers to get into the network 
+### 2.7 Explain the importance of physical security controls
+- **Bollards/barricades**:
+    - Pillars made of metal or concrete, block access of people and vehicles from areas 
+- **Access control Vestibules**:
+    - Areas in which personnel authenticate before entering a facility, seperate the outside from the secure inside 
+- **Badges**:
+    - Typically a card used for identification and authentication of personnel at a facility 
+- **Alarms**:
+    - Alarms can alert of a physical intrusion to a facility with flashing lights and loud noises
+- **Signage**:
+    - Clear indication designating areas of the facility important for safety such as for emergency exits, can be a deterent for example alerting people they're on camera 
+- **Cameras**:
+    - Cameras allow organizations to remotely monitor facilities and save the footage in the case of a security event
+    - Motion Recognition:
+        - Cameras don't need to be constantly running and can instead begin recording when motion is detected
+    - Object Detection:
+        - Uses algorithms to detect what is being filmed by the camera, things such as vehicles or people
+- **Closed-circuit television (CCTV)**:
+    - Video Surveillance broadcasts the footage directly to a designated place for monitoring 
+- **Industrial Camouflage**:
+    - Making important facilities such as data centers appear as generic industrial buildings to not attract the attention of attackers 
+- **Personnel**:
+    - Guards:
+        - Guards can patrol the facility, ensure other staff are authenticating to access facilities, and respond to active threats to physical security like an intruder 
+    - Robot Sentries:
+        - Unmanned devices that can roam the facility providing video, audio, and other monitoring 
+    - Reception:
+        - Reception such as the front desk can greet, identify, and authenticate staff before they enter the facility 
+    - Two-person integrity/control:
+        - Security control requiring two people to complete an important action, such as two keys need to be inserted to open a safe
+- **Locks**:
+    - Biometrics:
+        - Prevent access to a resource or area unless the user authenticates using a biometric factor 
+    - Electronic:
+        - Prevent access to a resource or area unless unlocked through electronic means such as a pin code or smart card 
+    - Physical:
+        - Physical locks need a key to be opened 
+    - Cable locks:
+        - Special cables which connect to a device preventing it from being moved from a location 
+- **USB data blocker**:
+    - Prevent a usb port from transfering data only allowing the transfer of power 
+- **Lighting**:
+    - Good lighting can deter intruders, and make identification easier over CCTV Surveillance 
+- **Fencing**:
+    - Physical control over the area arround a facility 
+- **Fire suppression**:
+    - Systems such as sprinklers that prevent the spread of fire within a facility 
+- **Sensors**:
+    - Motion Detection:
+        - Through the use of technologies such as infrared detect motion and trigger an event such as flood lighting or cameras 
+    - Noise Detection:
+        - Use microphones to detect noise and trigger an event such as cameras 
+    - Proximity Reader:
+        - Used to tell how far something is from the sensor, useful to make doors or gates automatically close after personnel enters 
+    - Moisture detection:
+        - Sensors capable of detecting the presence of liquid, useful for preventing water damage to computer hardware
+    - Cards:
+        - cards and badges can be used with a sensor to open doors and locks providing access to areas if the correct card is presented
+    - Temperature:
+        - Temperature sensors can be used in conjunction with HVAC systems to keep the conditions of the facility optimal for computing equipment or comfortable for staff 
+- **Drones**:
+    - Unmanned aircraft can be used for surveilling large property 
+- **Visitor Logs**:
+    - A list of everyone who entered a facility
+    - useful in case of a security event to audit who had physical access to systems 
+- **Faraday Cages**:
+    - A material designed to prevent wireless signals from penetrating 
+    - useful to prevent wireless data exfiltration from a secure area
+-  **Air gap**:
+    - A sensitive system that is not connected to the network
+- **Screened subnet (aka DMZ)**:
+    - Segmented portion of the network to provide access to the public internet without allowing traffic on the internal network 
+- **Protected Cable distribution**:
+    - Shielding wires to prevent tapping or physical tampering 
+- **Secure Areas**:
+    - Air gap:
+        - Secure System or systems that are not connected to the internal network
+    - Vault:
+        - Reinforced area for secure storage 
+        - useful for valuble assets or important physical media
+    - Safe:
+        - Smaller reinforced secure storage area
+        - useful for assets or backups that don't require an entire vault 
+    - Hot aisle:
+        - Aisle in a data center through which hot air is directed away from computing equipment 
+    - Cold aisle:
+        - Aisle in a data center where cold air is directed onto computer equipment for cooling 
+- **Secure data destruction**:
+    - Burning:
+        - Physical data on paper can be burned so that it's no longer readable 
+    - Shredding:
+        - Data recorded on paper can be shredded into little pieces to make extracting information more difficult 
+    - Pulping:
+        - Paper is washed of all ink and can be recycled into new paper
+    - Pulverizing:
+        - Crushing something into small pieces to make it unreadable 
+        - useful for hardware 
+    - Degausing:
+        - Magnetically disabling drives that use spinning disks to record data 
+    - Third-party solutions:
+        - Third parties can handle the destruction of data
+        - It is important to recieve a certificate of destruction to confirm the data was actually destroyed
+### 2.8 Summarize the basics of cryptography concepts
+- **Digital Signatures**:
+    - encrypting a hash of data using an encryption key
+    - ensures integrity using hash
+    - provides non-repudiation and authentication through encryption 
+- **Key Length**:
+    - The longer the encryption key the longer a brute force attack on the key will take 
+- **Key Stretching**:
+    - Methods to increase the length of an encryption key
+    - hashing multiple times for example
+- **Salting**:
+    - adding extra data to the data you're hashing so that two exact same inputs will have different message digests
+    - common with passwords because people will use the same passwords as oneanother 
+- **Hashing**:
+    - A one way algorithm that converts data to a fixed length string known as a message digest
+    - can't derive original data from the message digest
+    - common for password storage so that plain text passwords are never stored only the message digests or hashed passwords 
+    - The same data will always produce the same message digest
+- **Key exchange**:
+    - The exchange of an encryption key between both sides of a conversation
+    - common method is diffie helman where both users public encryption key is exchanged than combined with the other users private key to create a single symmetric key shared by both parties that was never shared publicly 
+- **Elliptic-Curve Cryptography**:
+    - algorithm to create asymmetric encryption keys based upon algabraic expressions of an elliptic curve over finite fields  
+- **Perfect Forward Secrecy**:
+    - updating a shared encryption key frequently to prevent brute forcing encrypted communications after the fact 
+- **Quantum**:
+    - Communications:
+        - in quantum mechanics observing a quantum bit changes it
+        - quantum communications uses this fact to distribute keys securely because intercepting the encryption key would change it 
+    - Computing:
+        - Computing based on quantum mechanics instead of classical mechanics
+        - instead of normal bits which have a state of 1 or 0 quantum bits or qbits can be anywhere between 1 and zero
+        - due to this quantum computers are signiciantly more powerful than standard computers
+        - this means they'll be able to brute force encryption algorithms much faster than a regular computer
+- **Post-quantum**:
+    - Post-quantum algorithms are protected against brute force by quantum computers by using more complex alogorithms than standard encryption
+- **Ephemeral**:
+    - an encryption key that is only used a single time
+- **Modes of operation**:
+    - Authenticated Encryption (AE):
+        -  encrypts data and verifies authenticity 
+        - takes the plaintext and encryption key
+        - outputs ciphertext and also an authentication tag which can be used during decryption to verify authenticity 
+    - Unauthenticated: 
+        - Encrypts the data but doesn't verify the authenticity 
+        - this means that the ciphertext can be changedwhich would cause the resulting decrypted plaintext to change 
+    - Counter:
+        - Encrypts the first block of data using a randomly generated initialization vector, each subsequent block is XOR'd ((exclusive OR) meaning each bit is compared and if they're the same then the resulting bit is 0but if they're different the resulting bit is one ) the initialization vector is then incremented with each block that is encrypted 
+
