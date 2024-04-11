@@ -1150,4 +1150,176 @@ tags: []
         - this means that the ciphertext can be changedwhich would cause the resulting decrypted plaintext to change 
     - Counter:
         - Encrypts the first block of data using a randomly generated initialization vector, each subsequent block is XOR'd ((exclusive OR) meaning each bit is compared and if they're the same then the resulting bit is 0but if they're different the resulting bit is one ) the initialization vector is then incremented with each block that is encrypted 
-
+- **Blockchain**:
+    - Public Ledgers:
+        - A distributed way of verifying transactions of cryptocurrency 
+        - Transactions are signed and added to the ledger
+        - before a transaction is made they're verified using the distributed ledger to ensure no one can send more currency than they own 
+- **Cipher Suites**:
+    - Stream:
+        - Ciphers that encrypt data a single bit at a time
+    - Block:
+        - Block ciphers encrypt data broken up into chunks called blocks 
+- **Symmetric vs. Asymmetric**:
+    - Symmetric Cryptography:
+        - Data is encrypted using a single key then decrypted with the same key 
+    - Asymmetric data:
+        - Asymmetric systems have two keys that are mathemattically connected
+        - The private key is held only by you and can be used to encrypt data or decrypt data that has been encrypted with the public key  
+        - The public key can be shared with anyone and either decrypts data that has been encrypted with the public key, or encrypts data so that it can only be encrypted using the private key 
+- **Lightweight Cryptography**:
+    - Cryptographic algorithms can be intensive to compute
+    - lightweight cryptography uses algorithms that are specifically designed to be less intensive allowing weaker hardware to encrypt and decrypt data
+    - common for IoT, embedded, and mobile devices 
+- **Steganography**:
+    - Hiding data in plain sight, placing it in the binary of other data files, which can be decoded or decrypted 
+    - Audio:
+        - Audio Steganography hides data within audio files that sound normal unless decrypted
+    - Video:
+        - Hiding data in videos can be done with video steganography
+        - video appears normal unless decrypted
+    - Image:
+        - Image steganography hides data within thebits that make up the image
+        - the image appears normal but can be decoded to output the hidden data 
+- **Homomorphic Encryption**:
+    - HE or Homomorphic Encryption allows data to be calculated upon while still being encrypted
+    - removes the need to decrypt the data to run calculations on it
+- **Common use cases**:
+    - Low power devices:
+        - devices such as embedded systems, IoT, and mobile devices still need to communicate using encryption
+        - this is where lightweight encryption is useful 
+    - Low latency:
+        - Lightweight encryption requires less time to encrypt and decrypt data
+        - this makes it perfect for low latency use cases such as encrypting wireless communications 
+    - High Resiliency:
+        - high resilience encryption has strong encryption keys and can be resistent in implementation to things such as side channel attacks 
+    - Supporting Confidentiality:
+        - when data is encrypted the only party that can access the data is one with the proper key, ensuring confidentiality
+    - Supporting Integrity:
+        - since no two inputs should produce the same hash/message digest you can verify the integrity of data by hashing the data and making sure the hash matches the original 
+    - Supporting Obfuscation:
+        - Encrypted data is unreadable to humans without the proper key to decrypt making it obfuscated
+    - Supporting authentication:
+        - Through the use of asymmetric encryption we can ensure the authenticity of a conversation because only the holder of the correct private key would be able to read data encrypted with the public key 
+    - Supporting non-repudiation:  
+        - Using asymmetric encryption we can ensure we're really communicating with the holder of the private key because anything they encrypt will only be decrypted with the corresponding public key, not anyone elses
+- **Limitations**:
+    - Speed:
+        - The time it takes to encrypt and decrypt data can limit the speed with which data can be transfered and acted upon 
+        - this is important for wireless cryptography where latency can degrade the quality of the connection 
+    - Size:
+        - encryption can increase the ammount of storage taken up by data if we have to hold both the cipher text and plain text in storage
+        - some algorithms are limited in the size of data they can encrypt at one time 
+        - larger files may need to be broken up before encryption 
+    - Weak keys:
+        - Encryption using weak keys is vulnerable to brute force attacks where they attacker guesses every single decryption key until the data is readable
+    - Time:
+        - Encryption and decryption adds extra time to operations
+        - lightweight cryptography can help mitigate this 
+    - Longevity:
+        - As computing power increases encryption algorithms that once took a long period of time to brute force can be broken in much shorter ammounts of time 
+    - Predictability:
+        - if common patterns can be found in encryption and hashing algorithms the key may be reverse engineered or bruteforced faster 
+    - Reuse:
+        - reuse of the same encryption key would make the encryption less secure because there exists a possibility that the key has been comporomised previously 
+    - Entropy:
+        - Lower levels of entropy make the brute force of encryption keys much easier 
+    - Computational overheads:
+        - Encryption adds overhead to computing which can exhaust the resources of lower power devices 
+        - Important for IoT/embedded/mobile devices
+        - to mitigate the overhead in server settings we can use a HSM which can preform cryptographic algorithms 
+    - Resource vs. security constraints:
+        - given the constraints of encryption it is a balance between the cost of the encryption strength on your resources and the cost of having weak encryption on the security of the data 
+## 3.0 Implementation
+### 3.1 Given a scenario, implement secure protocols
+- **Protocols**:
+    - Domain Name System Security Extensions (DNSSEC):
+        - Transmits DNS requests using encryption to hide the request from a third party 
+    - SSH:
+        - Secure Shell
+        - remotely access the command line of another machine over an encrypted channel 
+    - Secure/Multipurpose Internet Mail Extensions (S/MIME):
+        - protocol for sending email with support for public key encryption 
+    - Secure Real-time Transport Protocol (SRTP):
+        - support for transfering data with low latency using encryption
+        - used for audio and video calls 
+    - Lightweight Directory Access Protocol Over SSL (LDAPS):
+        - uses a centeralized directory on the network to apply premissions to users access to resources 
+        - does so over secure sockets layer (SSL) meaning communicating with this centeral directory is encrypted
+    - File Transfer Protocol, Secure (FTPS):
+        - Transfer files using FTP over a secure/encrypted channel 
+    - SSH File Transfer Protocol (SFTP):
+        - uses SSH protocol to transfer files to another machine over the network while remaining encrypted 
+    - Simple Network Management Protocol, version 3 (SNMPv3):
+        - Remotely manage networked devices over an encrypted channel 
+    - Hypertext Transfer Protocol over SSL/TLS (HTTPS):
+        - Uses secure sockets layer and transport layer security to encrypt the transfer of webpages over the network 
+    - IPSec:
+        - ensures the privacy and authenticity of data sent over the public internet 
+        - Authentication header (AH)/Encapsulating Security Payloads(ESP):
+            - Authentication Header (AH):
+                - Ensures the authenticity, and integrity of the data but doesn't encrypt the data  
+                - hashes the packet and a key shared between both parties
+                - hash is added onto the packet as a header 
+                - prevents replay attacks
+                    - packets sent out of sequence won't match the hash
+            - Encapsulating Security Payload (ESP):
+                - Encrypts AND authenticates the data 
+                  - original packet is encrypted
+                  - then the packed it hashed
+                - ESP trailer is added to the packet, ESP header added to packet
+                - Integrity check value is added to the packet as a footer
+                - Often combined with AH which will verify integrity of the entire packet including ESP headers/trailers
+            - Tunnel/transport:
+                - IPSec has two modes: transfer mode and tunnel mode 
+                    - Transfer mode:
+                        - the original tcp/ip header remains unencrypted 
+                        - the rest of the data is surrounded in IPSec headers and trailers
+                    - Tunnel Mode:
+                        - the entire packet including tcp/ip header is surrounded by IPsec header/trailer
+                        - a new tcp/ip header is assigned to the packet 
+    - Post Office Protocol (POP)/Internet Message Acess Protocol(IMAP):
+        - POP and IMAP are email protocols and both have the option to encrypt their traffic using SSL/TLS 
+- **Use Cases**:
+    - Voice and Video:
+        - voice and video calls require low latency to be transported correctly, this would use SRTP to encrypt data 
+    - Time Synchronization:
+        - Noramlly computers use NTP or network time protocol to sync their time with a centeralized time server 
+        - To do so securely using encryption you would use NTPsec
+    - Email and Web:
+        - To secure email and web traffic you would send using Secure Sockets Layer or more likely Transport layer security 
+            - both IMAP and POP have options for TLS 
+        - To support asymmetric encryption of emails you can use the S/MIME protocol 
+    - File Transfer:
+        - Normally we can transfer files on the network using FTP 
+        - This can be done securely using the FTPS protcol
+        - Additionally this can be done through the encrypted SSH protocol by using SFTP or SSH File Transfer Protocol 
+    - Directory Services:
+        - To securely access a centeralized network directory you would use LDAPS which sends LDAP querries over SSL 
+    - Remote Access:
+        - You can use SSH or Secure Shell to securely access another computer remotely over the network  
+    - Domain Name Resolution:
+        - To send DNS requests securely using encryption you would use DNSSEC
+    - Routing and Switching:
+        - SNMPv3 can securely query routers and switches 
+    - Network Address Allocation:
+        - Usually DHCP is used to allocated IP addressses on the network 
+        - To enhance security outside security controls need to be used
+        - such as configuration changes on switches to limit what devices can act use DHCP to allocate addresses
+    - Subscription Services:
+        - Services such as Antivirus or IPS/IDS need their list of signatures constantly updated 
+        - encryption can be used to ensure updates to this list are only coming from the verified 
+### 3.2 Given a scenario, implement host or application security solutions
+- **Endpoint Protection**:
+    - Antivirus:
+        - Antivirus software scans endpoints for signatures of common viruses 
+        - often combined with anti-malware
+    - Anti-malware:
+        - scans for signatures to identify known malware that matches signatures in a database of malicious software
+        - can also match signatures in a substring of a file or within memory allocated to a process 
+    - Endpoint detection and Response (EDR):
+        - Examines the behaviors of programs, files, and users on the system to detect if it's malicious 
+        - can include an automated process to remove malicious software or files 
+    - DLP:
+        - Prevents the exfiltration of sensitive data from an organization over the network 
+        - 
