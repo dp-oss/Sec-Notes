@@ -1894,3 +1894,25 @@ tags: []
     - Tethering:
         - Using a mobile device as a wireless accesspoint
         - extend the cellular connection to other devices 
+    - Hotspot:
+        - A dedicated mobile hardware with a SIM card taht acts as a WAP for the cellular network  
+    Payment Methods:
+        - Through the NFC chip on many mobile devices payment information can be transmitted to point of sale systems allowing for payment using the mobile device 
+        - typically requires authentication
+- **Deployment Models**:
+    - Bring Your Own Device (BYOD):
+        - Personnel brings their personal mobile devices that are then managed by the organization through MDM software and segementation of personal data
+    - Corporate-owned personally enabled (COPE):
+        - The organization purchases and manages the device
+        - through segmentation the device can be enabled for personal use 
+    - Choose Your Own Device (CYOD):
+        - the organization allows personnel to choose the device that they want to be purchased/managed by the organization
+    - Corporate-owned:
+        - The organization purchases and manages the device
+        - the device is exclusively used for work and not personally 
+    - Virtual Desktop Infrastructure (VDI):
+        - Apps and data are accessed remotely seperate from the device  
+        - data and apps can be managed centerally 
+### 3.6 given a scenario, apply cybersecurity solutions to the cloud
+- **Cloud Security Controls**:
+    - High availibility across zones:
