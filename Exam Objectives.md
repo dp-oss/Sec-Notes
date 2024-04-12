@@ -1322,4 +1322,238 @@ tags: []
         - can include an automated process to remove malicious software or files 
     - DLP:
         - Prevents the exfiltration of sensitive data from an organization over the network 
-        - 
+        - some solutions can block transfer to removable media
+        - can run in the network or on endpoints
+    - Next-generation Firewall (NGFW):
+        - Allows or blocks network traffic based on an access control list
+        - can view traffic at OSI layer 7 meaning at the application level
+    - Host-based intrusion prevention system (HIPS):
+        - Takes action to prevent the exploitation of systems
+        - runs on endpoints 
+    - Host-based intrustion detection system (HIDS):
+        - detects and alerts of any security incedents on a system
+        - runs on endpoints
+    - Host-based firewall:
+        - Allow or block traffic based on pre-defined rules
+        - runs on endpoint Operating System
+- **Boot Integrity**:
+    - Boot security/Unified Extensible Firmware Interface (UEFI):
+        - Modern BIOS software standard
+        - provides chain of trust for the boot process
+        - Secure boot:
+            - function of UEFI bios standard
+            - verifies the digital signature of the bootloader for the operating system
+            - next step is Trusted Boot
+        - Trusted boot:
+            - The bootloader then verifies the digital signature of the OS kernel 
+            - the kernel continues to verify all other OS startup components
+            - additionally the kernel runs anti malware to ensure no part of the startup has been exploited 
+    - Measured Boot:
+        - verifies all boot components against a hash stored by UEFI in the trusted platform module (TPM) the tpm is a hardware component
+    - Boot attestation:
+        - A report verifying the integrity of the boot process
+        - can be digitally signed by the TPM and remotely sent to a centeral management server 
+        - this allows admins to verify that the system booted properly 
+- **Database**:
+    - Tokenization:
+        - Storing sensitive data using a unique placeholder instead of the actual data
+        - this place holder is just a stand in, it is not mathemattically connected to the original data 
+    - Salting:
+        - Adding extra characters to sensitive data before it is hashed
+        - this means that two identical pieces of data will have different message digests because each has a unique salt 
+        - common for password storage 
+    - Hashing:
+        - algorithms that represent data as a fixed length string of letters and numbers known as a message digest
+        - Hashing is a one way algorithm meaning the original data cannot be deciphered from the message digest
+        - The standard way to store passwords since even if the database is compromised the passwords won't be leaked only their hashes will be
+- **Application Security**:
+    - Input Validations:
+        - Ensuring that data a user enters into an application is in the correct format 
+        - this prevents attackers from injecting code in a place where data was supposed to be entered
+    - Secure Cookies:
+        - Cookies store information about a user on that users machine when they access a website
+        - cookies don't necessarily contain sensitive data
+        - its best practice to send cookies over HTTPS to do so securely 
+    - Hypertext Transfer Protocol (HTTP) headers:
+        - HTTP headers can be configured to only allow a user to take certain actions 
+        - commonly used to force ussers to communicate to a web server using HTTPS to provide encryption
+    - Code Signing:
+        - Code can be signed using the developers private key to create a digital signature 
+        - this way the users OS can verify that the code is from that specific developer and that it remains unchanged 
+    - Allow list:
+        - Administrators can create a list of applications that users are allowed to access to prevent running anything but approved applications 
+    - Block/deny list:
+        - Admins can create a block list which would allow users to run any application they chose as long as the application is not on the list of prohibitted apps 
+    - Secure Coding Practices:
+        - Always important to validate and normalize user input 
+        - always clear up unused memory 
+        - always allocate the appropriate ammount of memory to store your variables 
+    - Static Code analysis:
+        - Static analyzers are software that can go through the code of an application and identify vulnerabilities that may exist 
+    - Dynamic Code analyzers:
+        - use techniques on a running application to find vulnerabilties that can be exploited by the end users 
+    - Fuzzing:
+        - Inputting various random data into an application to determine if any of the inputs will cause unexpected behavior 
+- **Hardening**:
+    - The act of making a system more secure 
+    - Open Ports and Services:
+        - Open ports and services that are unecissary create security risks 
+        - it's best practice to audit all open ports and running services to determine if any of them are not needed 
+    - Registry:
+        - large data base containing the configurations for windows machines 
+        - administrators can audit the registry to determine if any changes have been made to a system that makes it less secure 
+    - Disk Encryption:
+        - storage devices can be configured to be encrypted by default to prevent unauthorized access to the data they contain 
+        - SEDs or self encrypting drives have this feature by default and are capable of entirely encrypting themselves and the data they contain 
+    - OS:
+        - Hardening often occurs at the OS level
+        - this can include host based firewalls, premissions, password rules, and other configuration settings 
+    - Patch management:
+        - Its always important to keep software up to date to because patches and updates often contain fixes to vulnerabilities 
+        - Third-party:
+            - updates for software that is not developed by the same organization that makes the operating system
+        - Auto-update:
+            - some software including operating systems can be configured to automatically download and install updates as they come out
+            - this can be good because it ensures security patches are quickly applied
+            - this can be bad because some updates can affect functionality of sytems, meaning if they're not tested first an auto update can reduce the availibility of a system 
+- **Self-encrypting drive (SED)/Full-disk encryption (FDE)**:
+    - Self Encryptin Drive (SED):
+        - Storage device built with the capability to automatically encrypt itself
+        - can be erased with CE or cryptographic erase where you instruct the drive to remove the encryption key making all the data un readable 
+    - Full-disk encryption(FDE):
+        - The encryption of an entire storage device
+        - OPAL:
+            - software standard to preform full disk encryption on SEDs
+- **Hardware root of trust**:
+    - Trust for the software loaded on the operating system can begin on the hardware level
+    - hardware components can store the signatures for OS software such as the kernel and boot loader
+    - if a change is detected in any core component of the OS then the signatures won't match
+- **Trusted Platform Module (TPM)**:
+    - Specific piece of hardware designed to hold cryptographic keys and preform algorithmic calculations for cryptography
+    - Interfaces with UEFI during the boot process to verify the software 
+    - part of the hardware root of trust 
+- **Sandboxing**:
+    - Isolated enviornment to run code in. 
+    - can be used to analyze malware
+    - can be used simply to isolate programs from one another 
+### 3.3 given a scenario, implement secure network designs
+- **Load Balancing**:
+    - Active/active:
+        - load is shared between two servers which both remain online at all times
+    - Active/passive:
+        - Load is sent to one server primarily the other remains offline unless the first server fails or the load requires more than the first can provide 
+    - Scheduling:
+        - the decision of which server traffic should be sent to when load balancing 
+        - Round robin:
+            - traffic is sent to each server in order sequentially
+        - Weighted Round robin:
+            - traffic is sent to servers sequentially but some servers may receive priority for example if they're more powerful 
+        - Dynamic Round Robin:
+            - traffic is sent sequentially unless a server has a ligther load than the others which will give it priority 
+    - Virtual IP:
+        - Load balancers are assigned a virtual IP that all inbound traffic is initally sent to 
+        - this allows traffic from the outside to come into the load balancer as if it were going into one place, then it will be distributed among the actual IPs of servers by the load balancer 
+    - Persistence:
+        - A session needs to remain on the same server that it begins because the data is not yet shared between servers while the session is active
+        - This requires Session affinity which means regardless of load balancing rules traffic over a session will continue to be sent to the server that the session began on to retain the back and forth conversation 
+- **Network Segmentation**:
+    - Virtual Local Area Network:
+        - A logically seperated local area network
+        - seperate broadcast domain meaning devices on the same VLAN can reach one another through broadcasts in the data link layer
+        - allows for control over what devices are communicating with one another locally 
+        - devices on a seperate VLAN will apear as if they're on a seperate local area network allowing for control between traffic between VLANs using firewalls 
+    - Screened Subnet (previously known as DMZ):
+        - A heavily protected subnet dedicated to providing access to an internal resource to the public internet 
+        - an example may be a public facing web server 
+        - the webserver will reside in the DMZ with strict firewall rules that allow internal updates to the webserver and also allow communication between the webserver and the public facing internet 
+    - East-west traffic:
+        - Traffic between devices in the same data center 
+        - usually quick response times 
+    - Extranet:
+        - a segergated part of the network to allow external entities access to internal network resources 
+        - commonly has additional authentication to access because it's not being accessed by the entire public internet like a DMZ would
+        - common use if for third parties such as vendors to access specific internal resources 
+    - Intranet:
+        - Wide area network connecting resources that are internal to the organization
+    - Zero Trust:
+        - Assuming that all devices and data on the network are untrusted
+        - meaning all network activity should be subject to security controls such as authentication and atestation 
+- **Virtual Private Network (VPN)**:
+    - Always-on:
+        - A VPN that is configured to constantly be connected to the secure internal network 
+        - commonly used on mobile devices to ensure that they're not accidentally connected to an insecure network while outside the organization
+    - Split Tunnel vs Full tunnel:
+        - Split tunnel:
+            - Sends only the traffic intended for the internal network through the VPN concentrator while traffic intended for outside webservers is sent directly back and forth between the user and the webserer 
+        - Full tunnel:
+            - All traffic is sent through the VPN concentrator which will then send the traffic intended for external websites to those websites and will return the traffic to the user
+    - Remote access vs Site-to-site
+        - Remote access:
+            - VPN used to connect from an external network into an internal network through a secure tunnel 
+        - Site-to-site:
+            - VPN used to connect from a secure internal network to a secure internal network at a different location 
+    - IPsec:
+        - VPN protocol to communicate through an encrypted tunnel
+        - Uses AH or Authentication header to verify the integrity of the data 
+        - Uses ESP or Encapsulating Security Payload to encrypt data and verify integrity 
+        - Tunnel Mode: 
+            - Wraps entire packet in IPsec headers and trailers then gives the packet a new IPsec header 
+        - Transport Mode:
+            - Wraps the data of a packet in IPsec header and trailer but leaves the original IP header in tact so that the data can be sent directly to its original destination 
+    - SSL/TLS:
+        - VPN operating over Secure Sockets layer or the more modern transport layer security protocol
+        - TCP port 443 
+        - doesn't require VPN client and is not typically blocked by external networks 
+        - common to use authentication in a browser to provide remote access from a mobile device 
+    - HTML5:
+        - makes use of web cryptography API in HTML5 to create an SSL VPN directly from the users browser without the need for an additional VPN client
+    - Layer 2 tunneling Protocol (L2TP):
+        - Connecting 2 seperate networks together as if they're the same layer 2 network 
+        - common for site-to-site vpns 
+        - creates the encrypted tunnel but often combined with IPsec to provide the encryption using ESP
+- **DNS**:
+    - Domain Name System:
+        - the system for translating the FQDN or fully qualified domain name like google.com to an actual IP address to route traffic to
+        - we send querries to DNS servers which respond with the correct IP address for the given domain name 
+    - DNS sec:
+        - Sends the DNS query to the DNS server securely using encryption 
+- **Network Access Control (NAC)**:
+    - deciding what devices can and cannot connect to the network
+    - Agent and agentless:
+        - Agent:
+            - Network Access control that requires a piece of software to be installed on the device attempting to access the network 
+            - The agent preforms a health check known as a posture assessment on the device which is an asessement of the devices security to confirm it can connect to the network 
+            - agent can be dissolvible meaning it is only installed on the device during the posture assessment and the uninstalled
+            - agent can be persistent which mean the software remains on the device and can be remotely accessed to preform posture assesments 
+        - Agentless:
+            - an agent can be included on the operating system itself and would require no additional software to be installed 
+- **Out-of-band management**:
+    - Managing network interfaces through means not directly accessible from the network
+    - commonly done through serial ports on network devices that provide a physical connection to the network infrastructure
+- **Port Security**:
+    - Broadcast Storm Prevention:
+        - Broadcasts are sent out to all devices on the same broadcast domain
+        - This can open the door for bad actors to flood the broadcast domain with traffic and creat a DOS 
+        - to prevent this switches can be configured to limit the number of broadcasts that devices can send out
+    - Loop Prevention:
+          - A loop is when the paths between devices creates a circle on the network and traffic is sent in a circle endlessly 
+          - Spanning tree protocol:
+          - A protocol designed to analyze the topology of the network and strategically block ports to prevent a loop from occuring
+          - can also provide fault tolerance if a network device is down STP can change which ports are blocked to enable routing of traffic 
+
+    - Bridge Protocol Data Unit (BPDU) guard:
+        - BPDU is the protocol that switches use in Spanning Tree to communicate with eachother, this is what allows STP to assess the network topology
+        - Port fast was added to switches running STP to enable devices that aren't swtiches and that just need network connectivity to instantly connect to the network without being analyzed by the STP
+        - BPDU guard prevents any device that communicates with BPDU frames from instantly sending packets with portfast 
+        - it's assumed this device will be a switch and needs to be assessed by STP to prevent loops 
+    - Dynamic Host Configuration Protcol (DHCP) snooping:
+        - DHCP is the protocol used to assign local IP addresses to devices on the network 
+        - DHCP snooping allows for the switch to trust certain DHCP servers to prevent unauthorized allocation of new local IP addresses using a rougue DHCP server 
+    - Media Access Control (MAC) filtering:
+        - Media Access Control Addresses are specific addresses that identify network hardware such as the NIC inside a users computer 
+        - MAC filtering allows the switch to allow or dissallow traffic based on the MAC address it originates from 
+        - The problem is MAC addresses are broadcast out in the broadcast domain and the MAC address of a computers NIC can be spoofed
+        - this means that MAC filtering is not a strong security control because a bad actor can just spoof their MAC address and circumvent the filtering 
+- **Network Applicances**:
+    - Jump Servers:
+        
