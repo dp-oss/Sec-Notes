@@ -457,7 +457,7 @@ tags: []
         - reviwing log reporting to locate threats 
     - Credentialed vs Non-credentialed:
         - scanning from the point of view of someone who doesn't have internal accecss to the network is Non-credentialed
-        - scanning from inside the netwrok is Credentialed
+        - scanning from inside the network is Credentialed
     - Intrusive vs Non-intrusive:
         - Scans that only look to see what's open on the network without affecting operation is called Non-intrusive
         - something that has the potential to dirsupt operations would be konwn as intrusive like a penetration test
@@ -1330,7 +1330,7 @@ tags: []
     - Host-based intrusion prevention system (HIPS):
         - Takes action to prevent the exploitation of systems
         - runs on endpoints 
-    - Host-based intrustion detection system (HIDS):
+    - Host-based intrusion detection system (HIDS):
         - detects and alerts of any security incedents on a system
         - runs on endpoints
     - Host-based firewall:
@@ -1556,4 +1556,117 @@ tags: []
         - this means that MAC filtering is not a strong security control because a bad actor can just spoof their MAC address and circumvent the filtering 
 - **Network Applicances**:
     - Jump Servers:
-        
+       - A secure server accessible on the edge of the network used to 'jump' into the internal network and access internal network devices 
+    - Proxy Servers:
+        - Forward Proxy:
+            - A proxy that takes internal network traffic and sends it to the external internet 
+        - Reverse Proxy:
+            - A proxy that takes inbound traffic from the external internet and sends it to the internal network 
+    - Network-based Intrusion Detection System (NIDS)/Network-based Intrusion Prevention System (NIPS):
+        - NIDS:
+            - Analyzes network traffic to warn of known vulnerabilities being exploited
+            - often combined with NIPS
+        - NIPS:
+            - Inspects network traffic for known vulnerabilities being exploited then takes action to prevent this from occuring 
+        - Signature based:
+            - Identifies network intrusions using known vulnerability signatures 
+        - Heuristic/Behavior:
+            - Compares behaviors of network traffic with known base lines to determine if traffic is out of place and an attack is occuring 
+        - Anomaly:
+            - Network traffic that is drastically different than the normal baseline and is likely to be from an attak
+        - Inline vs Passive:
+            - Inline:
+                - Inline NIDS/NIPS examine traffic as it is being sent through the network only allowing the traffic to flow if it is deemed safe 
+            - Passive:
+                - Passive IDS/IPS receive information from network devices that are directing traffic
+                - the traffic is then analyzed and thus cannot be blocked in realtime 
+    - HSM:
+        - Hardware Security Module, a network appliance that preforms cryptographic functions, and can store encryption keys 
+    - Sensors:
+        - Network appliances that collect data from the network devices 
+    - Collectors:
+        - aggregate and parse the data from sensors 
+        - can be specific to a certain network device such as the NIPS or NGFW 
+    - Aggregators:
+        - collects data from multiple sources such as collectors and device logs and combines it in one place
+    - Firewalls:
+        - Web Application Firewall (WAF):
+            - Firewall used to control traffic to a public facing webserver 
+            - can have more strict rules to prevent attacks from the public internet 
+        - NGFW:
+            - Firewall that allows or blocks traffic at OSI Layer 7, the application layer
+            - can block or allow traffic from specific applications 
+        - Stateful Firewall:
+            - Firewall that is aware of the state of traffic 
+            - this means that stateful firewalls can understand if traffic is coming as a response to previous traffic and automatically allow it through if the original traffic was already allowed
+        - Stateless Firewall:
+            - Not aware of the state of the traffic
+            - Inspects every single packet regardless of it is a response to a previously allowed traffic flow
+        - Unified Threat Management(UTM):
+            - Firewall with more advanced security features
+            - can inspect traffic for spam or malware
+            - can preform URL filtering or content inspection 
+        - Network Address Translation (NAT) Gateway:
+            - Allows multiple internal devices with different private IP addresses to communicate with the external Internet using the same public IP 
+            - Can have additional security features sucha s traffic filtering 
+        - Content/URL filtering:
+            - pre-defined content and URLs that users are allowed or blocked from communicating with over the network 
+            - common feature of many newer firewalls
+        - Open-source vs proprietary:
+            - Open Source firewall software has its code base publicly availible 
+            - the advantage is that the code can be altered to suit your needs and the security of the code can be audited by anyone 
+            - Propreitary firewall software is provided usually for a fee by a specific vendor, you cannot view the source code
+            - the advantage is that the vendor will likely provide support for the firewall and keep the code updated to prevent vulnerablities 
+            - the disadvantage is that you cannot audit the code yourself for vulnerabilities and you cannot customize the code to suit your needs 
+        - Hardware vs Software:
+            - Hardware Firewall:
+                - A physical network device to preform firewall functions
+                - you interface directly with the device to create firewall rules 
+                - sensors, collectors and aggregators pull data/logs directly from this device 
+            - Software Firewall:
+                - Firewall defined in software to be added to another network device 
+                - can be installed on an existing piece of hardware used to manage the network 
+                - useful for cloud enviornments with a Software-defined network 
+        - Appliance vs host-based vs virtual:
+            - Firewall Appliance:
+                - A physical piece of networking hardware to preform firewall functions  
+                - needs to be installed and maintained 
+            - Host-based firewall:
+                - Firewall operating within the operating system of an endpoint 
+                - can block or allow traffic only to/from that device specifically 
+                - can be automatically configured when managing the device 
+            - Virtual Firewall:
+                - Firewall operating in a virtual enviornment such as a cloud 
+                - can be controlled through Software-defined defined networking 
+- **Access Control List (ACL)**:
+    - A pre-defined list of traffic flows that are allowed or blocked on the network 
+   - integral part of firewall configuration 
+- **Route Security**:
+    - Protecting the routing information that routers use to send traffic to the right places 
+    - preventing maliciously crafted routes from directing traffic to an attacker 
+    - BGP or border gateway protocol is what is used for routers to communicate routing information to one another BGPSEC introduces encryption and authentication to this protocol
+- **Quality of Service (QoS)**:
+    - Quality of service aims to provide the necessary network resources to services running on our network infrastructure 
+    - Minimize down time and ensure services have enough resources to meet demand
+    - Elasticity is the ability of network resources to scale up or down to meet the demand placed on it
+    - Rapid Elasticity is the ability of a cloud system to scale its resources to meet demands in real time 
+    - use methods such as load balancing to ensure uptime of servers 
+    - applications transmitting VoIP or Video data may require more bandwith to reduce the latency and improve the quality of the audio or video stream 
+- **Implications of IPv6**:
+    - IPv6 was introduced after the adressing exhaustion of IPv4 meaning around 2010 we ran out of public IPv4 addresses
+    - IPv6 has significantly more addresses, meaning each endpoint can receive its own IPv6 address which can be routed publicly this can eliminate the need for NAT which can have implications on network security controls such as ACLs 
+    - IPv6 also eliminates broadcasts replacing ARP with Neighbor Discovery Protocol, this can eliminate ARP spoofing attacks where a device sends false ARP packets to pretend to have the MAC of another device 
+- **Port Spanning/Port Mirroring**:
+    - Through Switched Port Analyzer (SPAN) the traffic going through one port of a network swtich can be copied and sent through a dedicated port to a security device such 
+    - Port taps:
+        - A device that splits the incoming port into two allowing a copy of the traffic to be analyzed
+- **Monitoring Services**:
+    - A paid service that monitors network traffic to look for anomalies and threats 
+    - will often have professionals in a security operations center or SOC watching over traffic
+    - can be a 24/7 service 
+- **File integrity Monitors**:
+    - can monitor files on the devices that should not be changed such as system files
+    - can be on each endpoint or integrated into IPS
+### 3.4 Given a scenario, install and configure wireless security settings.
+- **Cryptographic Protocols**:
+
