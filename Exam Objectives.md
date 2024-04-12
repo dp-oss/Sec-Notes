@@ -72,7 +72,6 @@ tags: []
         - convincing target that you are trustworthy in order to encourage the action 
     - Urgency: 
         - convincing target that the action needs to be taken as soon as possible to prevent them from analyzing the request
-
 ### 1.2 Given a scenario, analyze potential indicators to determine the type of attack
 - **Malware**: 
     - malicious software, not installed intentionally
@@ -1540,7 +1539,6 @@ tags: []
           - Spanning tree protocol:
           - A protocol designed to analyze the topology of the network and strategically block ports to prevent a loop from occuring
           - can also provide fault tolerance if a network device is down STP can change which ports are blocked to enable routing of traffic 
-
     - Bridge Protocol Data Unit (BPDU) guard:
         - BPDU is the protocol that switches use in Spanning Tree to communicate with eachother, this is what allows STP to assess the network topology
         - Port fast was added to switches running STP to enable devices that aren't swtiches and that just need network connectivity to instantly connect to the network without being analyzed by the STP
@@ -1756,7 +1754,7 @@ tags: []
         - Controllers offer a centeral way to manage WAPs
         - can update firmware and view statistics
         - important to use HTTPS to communicate over encrypted channels when managing WAPs     
-### Given a scenario, implement secure mobile solutions
+### 3.5 Given a scenario, implement secure mobile solutions
 - **Connection methods and receivers**:
     - Cellular:
         - Towers that provide mobile network service are spread out geographically create a map of 'cells' to provide access to the network for mobile devices 
