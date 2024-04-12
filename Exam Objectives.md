@@ -1665,8 +1665,232 @@ tags: []
     - will often have professionals in a security operations center or SOC watching over traffic
     - can be a 24/7 service 
 - **File integrity Monitors**:
-    - can monitor files on the devices that should not be changed such as system files
+    - can monitor files on devices that should not be changed such as system files
     - can be on each endpoint or integrated into IPS
 ### 3.4 Given a scenario, install and configure wireless security settings.
 - **Cryptographic Protocols**:
-
+    - WiFi Protected Access 2 (WPA2):
+        - Older standard for cryptography 
+        - Vulnerable to brute force of the Pre Shared Key
+        - Attacker can listen to 4 way handshake and collect the hash of the PSK
+    - WiFi Protected Access 3 (WPA3): 
+        - Updated standard for wireless network cyrptography
+        - does away with the four way handshake instead using Simultaneous Authentication of Equals (SAE) a key exchange simmilar to diffie helman to exchange the preshared key    
+        - this eliminates the brute force attack on the PSK hash from WPA2
+    - Counter-mode/CBC-MAC Protocol (CCMP):
+        - cryptographic function used in WPA2 
+        - Data is encrypted using AES or advanced encryption standard to encrypt data 
+        - Uses CBC-MAC for the Message integrity check or MIC 
+    - Simultaneous Authentication of Equals (SAE):
+        - Key exchange process used in WPA3 
+        - simmilar to diffie helman key exchange 
+        - everyone authenticating is using a unique session key even if the Pre shared key is the same 
+- **Authentication Protocols**:
+    - Extensible Authentication Protocol (EAP):
+        - The standard framework for wireless authentication
+        - integrates with 802.1X
+    - IEEE 802.1X:
+       - Port based Network Access Control (NAC)
+       - REquires Authentication before accessing network
+       - Connects with a database of credentials such as LDAP, RADIUS or TACACS+
+       - The client to authenticate is known as a Supplicant which connects to an authenticator 
+       - the authenticator communicates with an Authentication Server (AS) which has the database of credentials
+    - Protected Extensible Authentication Protocol (PEAP):
+        - Encapsulates EAP framework in a TLS tunnel
+        - Uses a digital certificate instead of a protected access credential (PAC) to establish this tunnel
+        - certificate resides on the authentication server and not on the clients device  
+    - EAP-FAST:
+        - Flexible Authentication via Secure Tunneling
+        - Authentication server and supplicant share a protected access credential (PAC) to authenticate to one another and set up a TLS tunnel
+       - the users authentication credentials can then be sent to the AS over this TLS tunnel  
+    - EAP TLS:
+        - EAP process over a TLS tunnel 
+        - the difference between this and FAST is that the supplicant requires the digital certificate as well as the AS in order for the tunnel to be established 
+        - the downside is that you need to manage PKI on all devices since the cert can't just reside on the server 
+    - EAP-TTLS:
+       - EAP Tunneled Transport Layered Security
+       - Support for other authentication protocols over a TLS tunnel such as MSCHAP or other EAP types
+       - Like FAST the certificate to establish the TLS tunnel only resides on the AS 
+    - Remote Dial-in User Service (RADIUS) Federation:
+       - Members of an organization with a RADIUS authentication server can authenticate to a different organization's network using their RADIUS credentials 
+       - Uses 802.1X, and EAP to authenticate
+- **Methods**:
+    - Pre-share key (PSK) vs Enterprise vs Open
+        - Pre shared Key: 
+            - Authentication to a wireless network using a known secret
+            - this is like using the WiFi Password
+            - anyone who knows this secret can connect to the network
+        - Enterprise:
+            - Authentication to a wireless network using enterprise credentials stored in an authentication server (AS)
+            - examples of AS include: RADIUS, TACACS+, LDAP
+        - Open:
+            - An open Wireless network can be connected by anyone who can view the wireless SSID or network name
+    - WiFi Protected Setup (WPS):
+        - Allows various physical ways to authenticate to the network
+        - examples include: NFC, a WPS button on the access point, a PIN Code
+        - cryptographically flawed, the WPA pin is only 7 digits with the 8th being a checksum, meaning it takes few guesses to brute force 
+        - Should be disabled for security 
+    - Captive Portal:
+        - Connecting to a wireless network with a captive portal will re-direct a new user to a webpage to create login credentials before they're provided with network access
+        - commmon for public wifi networks such as those ina  coffee shop
+- **Installation Considerations**:
+    - Site Surveys:
+        - mapping out where wireless access points will be installed 
+        - based on factors such as interference, building material, other WAPs 
+    - Heat Maps:
+        - A map of all the wireless access points in an area
+    - WiFi Analyzers:
+        - Tools used to assess wireless network conditons
+        - spectrum and packet analyzers can be used to create a heatmap of the WiFi signals during a site survey 
+    - Channel Overlaps: 
+        - wireless channels that overlap will create frequency conflicts and interupt connections 
+        - 5GHz band has a large variety of connections
+        - 2.4GHz has only 3 channels in north america
+    - Wireless Access Point (WAP) Placement: 
+        - Many considerations play into the placement of WAPs
+        - Avoid overlap between other WAPs
+        - avoid other electronic devices that might interfere with Radio frequency or electromagnetic frequency interference 
+        - avoid thick materials
+        - place WAPs as close as possible to where users will connect from 
+    - Controller and access point security:
+        - Controllers offer a centeral way to manage WAPs
+        - can update firmware and view statistics
+        - important to use HTTPS to communicate over encrypted channels when managing WAPs     
+### Given a scenario, implement secure mobile solutions
+- **Connection methods and receivers**:
+    - Cellular:
+        - Towers that provide mobile network service are spread out geographically create a map of 'cells' to provide access to the network for mobile devices 
+    - WiFi:
+        - Mobile devices connect wirelessly to the LAN over WiFi
+    - Bluetooth:
+        - Short range communication between devices
+    - NFC:
+        - Near field communication 
+        - even shorter range than bluetooth
+        - often used for mobile payments
+    - Infared:
+        - Some devices can communicate using Infared wavelengths 
+        - common for remotes controlling a device 
+    - USB:
+        - Universal Serial Bus
+        - standard wired connection providing power and data transfer
+    - Point-to-point:
+        - a direct conversation between two devices
+        - common to connect two buildings or a WiFi signal to a wireless repeater 
+    - Point-to-multipoint:
+        - many devices communicating with an access point
+    - Global Positioning System (GPS):
+        - Uses satelites to triangulate geographical location
+    - RFID:
+        - Radio Frequency Identification
+        - Small chips emmit radio energy that can be tracked with radar 
+- **Mobile Device Management (MDM)**:
+    - Application Management:
+        - the control of what applications can be installed on a mobile device controlled by the organization
+        - can use allow lists to only allow certain applications
+        - block lists can allow for all applications except for ones on the list 
+    - Content Management 
+        - mobile content management (MCM) solutions allow an organization to control content that is created or stored on a managed mobilei device 
+        - set policies regarding where files are stored and what files can be accessed
+        - can remotely encrypt data
+        - includes DLP solutions 
+    - Remote wipe:
+        - Remotely erase a lost device through the MDM 
+    - Geofencing:
+        - Apply Mobile device policies such as restricting certain features based on geographical location of the device 
+    - Geolocation:
+        - Uses GPS to determine the device exact geographical location
+    - Screen Locks:
+        - MDM policies can require a screen to lock after a certain ammount of inactivity to prevent accidental data exposure 
+    - Push Notifications:
+        - notifications that are pushed to the locked screen of the device allowing the user to read some of their contents without unlocking 
+        - MDM can set policies on which data is displayed or which notifications are sent to a device to prevent sensitive data from being displayed on a locked device 
+    - Passwords and PINs:
+        - MDM policies can set password and pin number requirements for unlocking a mobile device
+        - devices can be set to erase after a certain ammoutn of failed password attempts 
+    - Biometrics:
+        - Often times mobile devices can be unlocked using biometric authentication factors such as facial scan or fingerprint 
+    - Context-aware authetntication:
+        - MDM can control the authentication of a mobile device based on a wide variety of pre-determined factors such as IP or geolocation
+    - Containerization:
+        - Segmented areas created on mobile devices to seperate data managed by the organization from user data 
+        - can be used when the device is no longer managed by the organization to wipe managed data but leave user data behind
+    - Storage segmentation:
+        - Similar to Containerization of a mobile device but applied specifically to seperate user and organizational data 
+    - Full device encryption:
+        - Devices can be fully encrypted and done so remotely by the MDM software
+        - can prevent the access of sensitive data in the even that a mobile device is lost
+- **Mobile Devices**:
+    - MicroSD hardware security module (HSM):
+        - A piece of hardware to handle encryption and store cryptographic keys 
+        - resides on a MicroSD card to be installed on devices that don't contain HSMs
+    - MDM/Unified Endpoint Management(UEM):
+        - A single place where all of an organizations mobile devices can be managed
+    - Mobile Application Management (MAM):
+        - remote management of specific apps on a device
+        - MDM still manages the device itself
+        - can remotely wipe application specific data
+        - allow/block lists for applications
+    - SEAndroid:
+        - Security enhanced android with more security controls built in
+        - simmilar to SELinux
+- **Enforcement and monitoring of**:
+    - Third-party application stores:
+        - Applications installed from a third party may not be verified for security vulnerabilities and may contain malware
+        - can be blocked from installation or execution using MAM and MDM
+    - Rooting/Jailbreaking:
+        - Circumventing the security controls on a device to gain 'root' or privileged access 
+        - can be dangerous because it undermines the security controls placed on a device by the MDM
+    - Sideloading:
+        - Installing applications from unofficial sources
+        - these applications may not be vetted for security and pose a security risk
+        - can be blocked from installation or execution using MAM and MDM
+    - Carrier Unlocking:
+        - Mobile devices are often locked to a cellular provider that subsidizes some of the devices cost, carrier unlocking circumvents this lock
+        - can be done after the contract of the cellular provider is completed
+        - can also be done without the provider's premission voiding the contract
+        - can possibly circumvent MDM controls
+    - Firmware over-the-air(OTA) updates:
+        - a mobile devices firmware can be updated remotely through the MDM over the network 
+        - this is known as an OTA upate
+    - Camera Use:
+        - Camera use of a managed mobile device can be restricted given certain conditions
+        - for example geolocation inside a data center or secure facilities 
+    - SMS/Multimedia Messaging Service (MMS)/Rich Communication Services (RCS):
+        - text messages can be a source of phishing attacks
+        - can be disabled on MDM managed phones
+        - SMS: 
+            - Short messaging service
+            - original standards 
+            - limmited on data that can be sent
+            - sent over cellular network that phone calls are made on
+        - MMS: 
+            - Newer than SMS
+            - can be sent over the internet or cellular network 
+            - can contain more data and send files such as images
+        - RCS:
+            - newer than SMS and MMS
+            - can only be sent over the internet 
+            - can contain more characters than MMS and SMS can contain larger file sizes 
+    - External Media:
+        - Storage devices can be connected to mobile devices to copy data 
+        - can be blocked by MDM or MCM 
+    - USB On-the-Go (USB OTG):
+        - connecting two mobile devices directly together using Universal Serial Bus
+        - can allow files to be transfered directly from one device to another without the need for external media
+        - can be blocked by MDM or MCM
+    - Recording Microphone:
+        - The microphone used for phone and video calls can make audio recordings
+        - can be disabled by MDM in certain situations
+        - such as when in a secure facility 
+    - GPS tagging:
+        - GPS data attached to a file as metadata (data describing data) 
+        - common to tie pictures to specific locations
+        - can be a privacy concern 
+    - WiFi direct/ad hoc:
+        - Connecting devices directly to oneanother using WiFi
+        - no need for a wireless access point
+        - common for IoT devices 
+    - Tethering:
+        - Using a mobile device as a wireless accesspoint
+        - extend the cellular connection to other devices 

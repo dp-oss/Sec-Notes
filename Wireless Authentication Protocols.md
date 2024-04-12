@@ -1,3 +1,9 @@
+---
+id: Wireless Authentication Protocols
+aliases: []
+tags: []
+---
+
 
 EAP: Extensible Authentication Protocol 
 - Many different ways to authenticate
@@ -19,7 +25,6 @@ PEAP: Protected Extensible Authentication Protocol
 - Encapsulates EAP in a TLS tunnel like FAST 
 - Client doesn't use a certificate 
 - Integrates with Microsoft and CISCO 
-- Can be used with 
 
 EAP TLS: EAP over TLS 
 - requires digital certificate on the Auth server and all other devices 

@@ -1,3 +1,9 @@
+---
+id: Wireless Authentication Methods
+aliases: []
+tags: []
+---
+
 We need to ensure people connecting to a network are authorized to use the network 
 
 Credentials: 
@@ -19,6 +25,8 @@ Security modes:
 WPS: wifi protected setup
 - may be a good idea to disable 
     - has a flawed design which can be a security risk 
+    - the pin is only 7 digits and an 8th digit which is the checksum
+        - this means that there is a low number of guesses required for a brute force attack
 - offers easy setups
 - allows different means of connection
     -  button on accesspoint 
