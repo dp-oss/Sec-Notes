@@ -911,7 +911,7 @@ tags: []
     - Vendors:
         - A diverse set of vendors will ensure redundancy in the case that one vendor is compromised, unavailible, or otherwise fails to meet the needs of an organization 
     - Crypto: 
-        - Crypographic algorithms will eventually be broken so using a diverse set of algorithms removes a single point of failure 
+        - Cryptographic algorithms will eventually be broken so using a diverse set of algorithms removes a single point of failure 
     - Controls:
         - Combining security controls ensures that if one control fails others will be able to prevent a threat to security. This is sometimes reffered to as defence in depth 
 ### 2.6 Explain the security implications of embedded and specialized systems
@@ -1914,3 +1914,238 @@ tags: []
 ### 3.6 given a scenario, apply cybersecurity solutions to the cloud
 - **Cloud Security Controls**:
     - High availibility across zones:
+        - Clouds can be split into availibility Zones AZ
+        - each zone would correspond to a different geographical zone 
+        - each zone would have independent infrastructure
+        - apps can be configured to have high availibility and switch zones if somethings were to prevent access to the current zone 
+    - Resource Policies:
+        - Control over who can access what resourcse can be done with Identity and Access Management (IAM) 
+        - allows for fine grain control over resource premissions 
+    - Secrets management:
+        - secure storage of secret keys is crucial for cloud security 
+        - secrets management services can manage access to secret keys applying premissions and controls
+        - its important to audit access to secret keys to ensure no one is accessing resources they shouldn't be able to 
+    - Integration and auditing:
+        - logs need to be reviewed and audited to monitor for potential intrusions
+        - logs can be consolidated in a SIEM 
+    - Storage:
+        - Premissions:
+            - apply proper premissions to cloud storage to ensure only authorized users access selected data
+            - follow principle of least privlige 
+        - Encryption:
+            - all data at rest and in transit needs to be encrypted 
+        - Replication:
+            - Cloud solutions enable organizations to duplicate data across multiple instances to increase redundancy and fault tolerance 
+        - High Availibility:
+            - Spreading out cloud resources to ensure they're availible whenever necessary 
+            - can use AZ for different geographical locations 
+            - load balancing solutions can help with availibility 
+    - Network:
+        - Virtual Networks:
+            - cloud enviornments can have virtual network harder 
+            - managing a virtual network can look and feel exactly like remotely managing a cloud network
+        - Public and Private subnets:
+            - a subnet is a segmented piece of a larger network
+            - Private Subnets:
+                - using internal private IP addressing
+                - not accessible from the public internet 
+                - connect from the outside using a VPN 
+            - Public Subnets:
+                - Reachable from the public internet
+                - external IP addressing 
+                - can make public facing services availible to the wider internet 
+        - Segmentation:
+            - seperating components and services in a cloud enviornment
+            - some services shouldn't be reachable to the public such as a back end database
+            - some services need to be availible to the public such as a web app
+            - add security between application components 
+        - API Inspection and integration:
+            - APIs can let other developers integrate an organizations services into their project
+            - APIs can also allow threat actors to access portions of an app or service that they should not be able to
+            - For this reason it's important to log and track API requests 
+            - Then audit these requests to determine if any are maliciously using API functionalities
+    - Compute:
+        - Compute is the portion of cloud infrastructure responsible for actually preforming calculations
+        - Security Groups:
+            - It's common to group users to authorize access to cloud compute resources
+        - Dynamic Resource Allocation:
+            - Provide compute resources based on what an application requires 
+            - when this process is automated it's called rapid elasticity
+        - Instance Awareness:
+            - awareness of what application is sending what  data across cloud infrastructure  
+            - allows for fine grained control based on the contents of the traffic 
+            - for example blocking PII from being uploaded to the organizations cloud storage service 
+        - Virtual Private Cloud (VPC) endpoint:
+            - allows private subnets to access internal resources and applications that reside in the cloud 
+            - this way parts of an organization in different geographic locations can access shared cloud resources that are not exposed to the public internet  
+        - Container Secuirty:
+            - Cloud containers can be vulnerable like any other deployment method
+            - The biggest risk would be an attacker breaking out of the container and accessing the underlying cloud enviornment
+            - container specific OSs are minimal and hardened to be run in a containerized enviornment 
+- **Solutions**:
+    - CASB:
+        - Cloud Access Security Broker
+        - seperate system that manages security for an organizations cloud enviornment
+        - can be run on endpoints, locally on the network, or in the cloud itself
+        - can provide IPS/IDS, data security, compliance, and other security features 
+    - Application Security:
+        - cloud applications need to have proper authentication and authorization controls in place
+        - APIs need to be mointored for malicious activity 
+    - Next-generation secure web Gateway (SWG):
+        - examines data transfered through the network 
+        - examines API erquests 
+        - has instance aware capability
+    - Firewall Considerations in a cloud enviornment:
+        - Cost:
+            - cost of firewalls can be influenced by if their host based solutions or virtual inside the cluod enviornment
+        - Need for segmentation:
+            - Firewalls can be created to allow or dissallow traffic flows for each application and component in the cloud enviornment
+            - what should be accessible to private subnets
+            - what should be accessible to the public internet 
+        - Open Systems Interconnection (OSI) layers:
+            - OSI layers are the language used for communication over the network
+            - Layer 4 is TCP/UDP traffic
+            - Layer 7 is Application Specific traffic
+            - firewalls can be configured to allow or dissallow traffic within each layer 
+            - NGFWs can be configured to allow or dissallow layer 7 or application specific traffic
+- **Cloud native controls vs. third-party solutions**:
+    - Cloud providers often have their own security controls that can be managed for the cloud services they provide an organization
+    - If using multiple providers, third party solutions can be used to provide vendor neutral security across multiple cloud providers
+### 3.7 Given a scenario, implement identity and account management controls
+- **Identity**:
+    - Identity provider (IdP):
+        - A service that manages identification and authentication for an organizations staff 
+        - refered to sometimes as authentication as a service 
+    - Attributes:
+        - characteristics used to identify an individual
+        - Personal attributes include: name, email, phone, ID number, etc. 
+        - unique to you 
+    - Certificates:
+        - Certificates are digitally signed with a users unique private key to verify their identity
+        - Requires public key infrastructure such as a certificate authority 
+        - can be stored on access tokens or smart cards
+    - Tokens:
+        - certificates can be stored on a USB token to be used on different endpoints to identify a user
+    - SSH keys:
+        - Cryptographic key used to identify hosts connecting through Secure Shell 
+        - can be used to authenticate to a remote host in a more secure way than using a password 
+    - Smart Cards:
+        - Card used to authenticate to resources and verify identity 
+        - typically stores and transmits identification through NFC and can be used to access different areas of a facility or different machines 
+- **Account Types**:
+    - User Account:
+        - Account on a system given to individual users to preform everyday tasks
+        - should follow principle of least privilege 
+    - Shared and generic accounts/credentials:
+        - accounts accessible to multiple people
+        - hard to audit actions taken on shared accounts
+        - can be necessary in some situations, but best practice is to not use a shared account 
+    - Guest accounts:
+        - Some operating systems allow for a guest account with less privileged access to a system
+        - best to disable these and have all users identify and authenticate 
+    - Service Accounts:
+        - Accounts used to set privelges and access for services running on a system 
+        - not used by an individual 
+        - important to manage credentials so that attackers can't gain service level access to a system 
+- **Account Policies**:
+    - Password Complexity:
+        - Forcing users to create a password with certain requirements for characters, such as letters, numbers, capital letters, symbols
+        - to prevent the efficacy of a brute force password attack
+    - Password history:
+        - forcing users to create a unique password not based on any previously used passwords
+        - mitigates the risk of previous passwords being discovered
+    - Password Reuse:
+        - Limiting users to create new passwords prevents them from re-using passwords that were previouslyleake
+    - Network Location:
+        - Applying security controls based on the location of the originating IP address
+        - ex. don't allow authentication from a country in which the organization has no facility or employees
+    - Geofencing:
+        - enable or disable account access based on the goelocation of the user
+    - Geolocation:
+        - Verifying the geographic location of a specific user to apply controls such as geofencing
+    - Time-based logins:
+        - restricting privileges of a user based on the time of day
+        - for example not allowing authentication to resources outside of working hours 
+    - Access Policies:
+        - Restrictions on what resources a specific user is authorized to access
+    - Account Premissions:
+        - Restrictions on what a specific user is allowed to do
+        - can combine with access policies for example a user can read a file but not edit it 
+    - Account Audits:
+        - Checking the history of activity from a specific user to look for anomalies, or malicious behaviors
+    - Impossible travel time/risky login:
+        - If a users location changes faster then it would be physically possible to switch locations it can be determined that someone unauthorized in another location is attempting to access the account 
+        - risky logins are other indicators that someone unauthorized is attempting to access the account 
+    - Lockout:
+        - Accounts can be locked out of use if suspicious activity is detected
+        - this can allow for the threat to be mitigated without further login attempts 
+    - Disablement:
+        - An account that is disabled is no longer accessible but the data is not deleted
+        - This is an important step in the offboarding process when an employee who may still hold data is leaving the organization 
+### 3.8 Given a scenario, implement authentication and authorization solutions
+- **Authentication management**:
+    - Password Keys:
+        - a physical device that is plugged into a system to authenticate a user 
+        - can often be used through USB and kept on a users keychain 
+    - Password Vaults:
+        - Creates and stores strong radomized passwords allowing the user to access them using a single masterpassword 
+    - TPM:
+        - Trusted Platform Module
+        - piece of hardware that preforms cryptographic functions for a device 
+        - can store cryptographic keys
+        - offloads the overhead of cryptography, for lower power devices 
+        - verifies the signatures of software during the boot process 
+    - HSM:
+        - Hardware Security Module 
+        - a dedicated hardware appliance that preforms cryptographic functions and stores cryptographic keys 
+        - usually installed in a server/data center
+        - can hold the private keys of multiple servers    
+    - Knowledge-based Authentication:
+        - Authenticating a user by asking something only they would know
+        - the question may not always be selected by the user 
+        - example "what street did you live on two addresses ago?"
+- **Authentication/authorization**:
+    - authentication is verifying the identity 
+    - authroization is verifying the user has premission to take an action
+    - EAP:
+        - Extensible authentication protocol
+        - standard for authenticating to a wireless network
+        - integrated with other protocols such as 802.11 
+        - can be integrated with encryption algorithms for security 
+        - a framework with many ways to implement authentication
+    - Challenge-Handshake Authentication Protocol (CHAP):
+        - A protocol for network authentication 
+        - requires a 3 way handshake 
+            - CHAP server sends challenge message
+            - Client responds with password and challenge hash
+            - server evaluates response 
+        - the password or its hash are never sent directly over the network 
+        - this handshake will occur multiple times over the session 
+    - Password Authentication Protocol (PAP):
+        - basic older authentication method
+        - weak because communication occurs in the clear
+        - encryption would need to be provided by the application using PAP for authentication 
+    - 802.1X:
+        - IEE standard for Port Based Network Access Control (NAC)
+        - Clients also known as supplicants cannot access a network without authenticating
+        - Authenticators provide access to the network
+        - Authentication Servers store database of credentials and validate supplicant credentials 
+        - can be used for wired/wireless 
+        integrated into EAP
+    - RADIUS:
+        - Remote authentication Dial-in user service
+        - A server that stores authentication credentials
+        - can allow for authentication into a wide variety of devices and services including the network 
+    - Single sign-on (SSO):
+        - Authentication to multiple resources using one set of credentials 
+        - for example using the same user name and password to authenticate for the organizations internet, email service, and network 
+    - Security Assertion Markup Language (SAML):
+        - Standard for requesting credentials from an authentication server 
+        - allows third-parties to authenticate and authorize 
+        - SAML request are sent to an authentication server which returns a token
+        - this token allows the user to authenticate to services supporting SAML
+    - Terminal Access Controller Access Control System PLus (TACACS+) 
+        - TACACS is an older remote authentication protocol created by CISCO 
+        - TACACS+ plus is the latest version of this standard which was made into an open standard 
+       - Not compatible with older TACACS versions  
+

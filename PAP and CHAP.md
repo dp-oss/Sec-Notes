@@ -20,8 +20,9 @@ A basic method of authentication used in older OSs
 ## CHAP  (Challenge Handshake Authentication Protocol)
 - Threeway Handshake 
     - CHAP server sends a challenge message 
-    - cliente responds with Password  challenge hash
+    - client responds with Password  and challenge hash
     - server evaluates password and challenge hash 
+    - password or hashed password never sent directly over networ
 
 ## MS-CHAP
 Microsofts version of CHAP 

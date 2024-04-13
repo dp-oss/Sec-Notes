@@ -26,7 +26,7 @@ Implements Security policy in the cloud
 - need to control authorization and access to data 
 - Need to secure APIs 
 - See [[1711239970-WYUU|cloud Security Controls]]
-## Next-gen Secure Web Gateway (SWG0
+## Next-gen Secure Web Gateway (SWG)
 - examines data transfered through network
 - examines API requests 
 - can allow or dissallow activities 
