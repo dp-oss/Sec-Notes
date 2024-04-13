@@ -32,7 +32,7 @@ Authorization based on a specific often complex set of attributes
 
 ## Rule-based Access Control
 Generic term for Authorization based on specific rules 
-- admins are set by the admins 
+- rules are set by the admins 
 - rules can be object specific 
     - Network has its own rules 
     - documents and spreadsheets another 

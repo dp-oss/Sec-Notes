@@ -2147,5 +2147,55 @@ tags: []
     - Terminal Access Controller Access Control System PLus (TACACS+) 
         - TACACS is an older remote authentication protocol created by CISCO 
         - TACACS+ plus is the latest version of this standard which was made into an open standard 
-       - Not compatible with older TACACS versions  
-
+        - Not compatible with older TACACS versions  
+    
+    - OAuth:
+        - an authorization framework  
+        - allows federated access to resources from third party services 
+        - OAuth doesn't authenticate instead OpenID is used
+        - OAuth simply authorizes the access to resources 
+        - popoular for many web services and platforms 
+        - "This site would like to access your google drive"
+    - OpenID
+        - OpenID connect is the authentication portion of the OAuth Framework
+        - Authenticates a service using credentials from another trusted service 
+        - "Sign in with google?"  
+    - Kerberos:
+        - A widely used authentication standard
+        - Kerberos server stores authentication credentials 
+        - can provide access to the network, or other organizational resources 
+        - Mutual authentication between the kerberos server and the client, to prevent man-in-the-middle attacks 
+        - can integrate with Microsoft Active Directory
+- **Access Control Schemes**:
+    - Attribute-based access control (ABAC):
+        - A users access to a resource is determined bya pre-defined set of attributes
+        - IP, time of day, data type, location
+    - Role-based access control(RBAC):
+        - Authorization determined by an assigned role given to each user 
+    - Rule-based Access Control:
+        - Authorization to access resources that is based on pre-defined rules 
+        - rules can be fine grained and specific to each resource
+        - network can have seperate rules from a database for example 
+    - MAC:
+        - Mandatory Access Control
+        - objects are classified into categories based on it's sensitivity
+        - Administrators determine a users clearance level which determines what resources they're authorized to access
+        - like classified and unclassified documents
+    - Discretionary Access Control (DAC):
+        - Access Control Scheme where authorization is granted by the owner, or creator of an object.
+        - for example a user can determine who is authorized to access a specific document that they create
+        - potentially insecure
+    - Conditional Access:
+        - Administrators set specific conditions or controls required for authorization
+        - access can be limited, reading but not editing for example
+        - security controls can be required for access such as MFA 
+        - access can be allowed or blocked based on these conditions
+    - Privileged Access Management:
+        - management of elevated system access
+        - no user even an administrator should constatnly use a privileged accoutn for day to day activities
+        - authorization to higher privileged access is only allowed on an as needed basis
+        - helps to audit privelged access 
+    - Filesystem Permissions:
+        - Permissions can be set within the filesystem of an OS to determine which Users on a machine are authorized to take certain actions and access specific resources 
+        - Windows uses group policies 
+        - Unix systems assigns read, write and execute permissions to Owner, Group, and All Users, seperately for each file. 

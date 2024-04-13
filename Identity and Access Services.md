@@ -14,7 +14,7 @@ A common AAA protocol
 Another common authentication protocol 
 - XTACAS (Extended TACAS) 
     - created by CISCO 
-- TACAS+ is the modern standard
+- TACACS+ is the modern standard
 
 ## Kerberos
 Another authentication protocol 
