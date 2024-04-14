@@ -2298,7 +2298,7 @@ tags: []
         - often the root CA is seperated from network to protect it from comproimse
         - intermediate CAs will sign the certificates that are in use, limiting the scope of a potential compromise to a single intermediate CA 
     - Stapling:
-        - checking Online certificate status protocol to check status of a certificate can take up resources and slow down connections
+        - using Online certificate status protocol to check status of a certificate every time you connect can take up resources and slow down connections
         - to prevent constant checking, a local copy of the OCSP status is included on the web server and is refreshed with the CA regularly  
         - stapling is adding the OCSP status from the local server into the inital SSL/TLS handshake so that a connection with the CA doesn't need to be made
     - Pinning:
@@ -2308,7 +2308,7 @@ tags: []
     - Trust Model:
         - A single CA requires all users to trust the certificates issued by one CA
         - A hierarchical trust model has a root CA issue certs to intermediate CAs which are trusted to issue certs. If the root CA is trusted so are the intermediaries 
-        - A web of trust is when users sign the certificates of other users, if you trust a users, and they trust another user, then you would trust that other user
+        - A web of trust is when users sign the certificates of other users, if you trust a user, and they trust another user, then you would trust that other user
         - A mesh is when various CAs verify one another 
         - mutual authentication establishes a trust relationship between both client and server 
             - the server authenticates to a client and the client also authenticates to a server  
