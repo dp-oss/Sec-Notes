@@ -68,7 +68,7 @@ Accounting of who authenticated and who didn't
 - IP
 - methods of auth
 - Success or failure 
-- Multipole attempts 
+- Multiple attempts 
 
 ## Dump files
 Storing the contents of memory into a diagnostic files
@@ -84,6 +84,6 @@ Information regarding calls and communications
 - SIP traffic
     - sesion initiation protocol
     - call setup and management and teardown
-    - inbound and outboudn calls 
+    - inbound and outbound calls 
     - Unusual numbers and country codes 
 

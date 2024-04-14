@@ -467,7 +467,7 @@ tags: []
     - Network:
         - Vulnerability scan within the scope of an entire network, will include things like what ports are open and what services are running on those ports
     - Common Vulnerabilities and Exposures(CVE)/Common Vulnerability Scoring System (CVSS):
-        - CVE is the most popular database of vulnerabilities that have been reported this is run by the MITRE coorperation
+        - CVE is the most popular database of vulnerabilities that have been reported    
         - CVSS is the scoring system used to rank vulnerabilitiesbased on severity, this rating is given from 0 being least severeto 10 being most severe
 - **Syslog/Security Information Event Management (SIEM)**: 
     - Syslog:
@@ -1713,7 +1713,7 @@ tags: []
        - Members of an organization with a RADIUS authentication server can authenticate to a different organization's network using their RADIUS credentials 
        - Uses 802.1X, and EAP to authenticate
 - **Methods**:
-    - Pre-share key (PSK) vs Enterprise vs Open
+    - Pre-shared key (PSK) vs Enterprise vs Open
         - Pre shared Key: 
             - Authentication to a wireless network using a known secret
             - this is like using the WiFi Password
@@ -2317,4 +2317,290 @@ tags: []
     - Certificate Chaining:
         - A chain of trust is all the certificates issued between the server being communicated with and the root CA 
         - a proper chain of trust will need to be verified or else a browser will consider a certificate invalid
-
+## 4.0 Operations and Incident Response 
+### 4.1 Given a scenario, use the appropriate tool to assess organizational security.
+- **Network Reconnaissance and Discovery**:
+    - tracert/traceroute:
+        - verify the route take over the network to a destination
+        - tracert windows
+        - traceroute linux
+    - nslookup/dig:
+        - Verify the DNS server used for a dns request
+    - ipconfig/ifconfig:
+        - view information about network interfaces on a machine 
+        - ipconfig on windows
+        - ifoncifg on linux
+    - nmap:
+        - port scanning tool
+        - can provide information on open ports, running services, software versions and more
+    - ping/pathping:
+        - check for a reachability over the network
+        - typically using ICMP echo request
+        - pathping on windows also displays the route a ping took to the destination
+    - hping:
+        - pinging tool with more options
+        - fine grained control over protocol used
+        - can flood a target with packets and cause DoS
+    - netstat:
+        - shows active connections to a machine 
+        - -b on windows will show the binary running the connections
+        - -n will not resolve IP addresses
+        - -a will show all connections
+        - -r for the route
+    - netcat:
+        - write data to another machine over the network
+        - can be used to send files 
+    - IP sacnners:
+        - tools used to scan for network devices 
+        - nmap
+        - hping
+        - arp for local
+        - many more
+    - arp:
+        - Address resolution protocol
+        - can be used to determine mac address from local IP
+    - route:
+        - displays current routing table 
+    - curl:
+        - Client URL
+        - can send http requests from the command line printing the output 
+    - theHarvester:
+        - tool for gathering OSINT
+        - can specify a name or username to search and a search engine
+        - can also conduct dns enumeration through brute force which will search for subdomains under a domain name
+    - sn1per:
+        - combination of several OSINT tools to find information about a domain 
+        - dnsenum, the harvester, hping, nmap
+    - scanless:
+        - conduct port scans over a proxy to hide the originating address
+    - dnsenum:
+        - enumerate domains and subdomains
+        - will use brute force methods to search for other similar domains under a single known domain
+    - Nessus:
+        - widely used vulnerability scanner
+    - Cuckoo:
+        - sandboxing enviornment
+        - used to run malware in a controlled setting
+- **File manipulation**:
+    - head:
+        - view the first lines of a file
+    - tail:
+        - view the last lines of a file 
+    - cat:
+        - concatenate
+        - prints file to stdout
+    - grep:
+        - search for a string within a file
+    - chmod:
+        - change mode
+        - set premissions of a file in unix
+        - read, write, and execute premissions can be set for Owner, Group, and Everyone 
+    - logger:
+        - send information to a system log file
+- **Shell andscript enviornments**:
+    - SSH:
+        - secure shell 
+        - used to connect to another machine remotely over an encrypted tunnel
+    - PowerShell:
+        - Advanced shell for windows OS
+        - can create scripts with a .ps1 etension to execute using powershell
+    - Python:
+        - powerful scripting language with many uses including data analytics
+        - python scripts will have a .py extension
+    - OpenSSL:
+        - Library for implementing SSL/TLS certifiactes in programs
+        - can create X.509 certificates
+        - can implemetn encryption/decryption/hashing 
+- **Packet Capture and replay**:
+    - Tcpreplay:
+        - capture and replay tcp/ip packets
+    - tcpdump:
+        - capture tcp/ip packets and print or store to file
+    - Wireshark:
+        - powerful and widely used packet capture tool
+        - can be used graphically to analyze packet captures saved to a file
+        - has packet replay capabilities
+- **Forensics**:
+    - dd:
+        - command line tool for copying a stream of data exactly bit for bit
+        - can be used to create an image of a drive
+        - ``if`` specifies input and ``of`` output 
+        - ``dd if=/dev/input of=/dev/output``
+    - Memdump:
+        - create an exact copy of data in system memory to be reviewed later
+    - WinHex:
+        - powerful tool on windows for viewing binary data in hexadecimal form
+        - many forensic uses including: wiping drives, creating images of specific sectors, disk cloning, etc.
+    - FTK imager:
+        - software used to create an exact image of a drive to be reviewed later 
+    - Autopsy:
+        - forensic tool used to extract and analyze data from images and dumps, or even from the device itself
+        - can help sort through extracted data 
+- **Exploitation Frameworks**:
+    - provide tools used for exploiting vulnerabilities 
+    - useful for pen tests and also attackers 
+    - metasploit is the most popular 
+    - Social Engineering Toolkit (SET) is used for social engineering attacks 
+- **Password Crackers**:
+    - tools to brute force passwords
+    - can use a rainbow table which is a precomputed list of common passwords along with their hashes 
+    - can use a word list of common or known passwrods to shorten the time it takes to brute force
+    - online password cracking attempts to guess passwords and directly authenticate to a service
+    - online cracking may be hindered by account lock outs after a certain ammount of failed login attempts 
+    - offline cracking uses the hash of the password and attempts hash password guesses to see if they're matched
+    - offline cracking can be hindered by salting hashed passwords when they're stored
+- **Data Sanitization**:
+    - when storage media is going to be re-used or sold after the data needs to be sanitized 
+    - sanitization is completely wiping data of storage media in a way that it cannot be recovered with forensic techniques   
+### 4.2 Summarize the importance of policies, processes and procedures for incedent response.
+- **Incident Response Plans**:
+    - Incident response plans are a pre-defined set of steps on how the organization would respond to a security incident 
+    - it's important to define the plan ahead of time so that the organization can react siwftly in a calculated way 
+- **Incident Response Process**:
+    - Perparation:
+        - What the organization needs to have in place before a security event occurs
+        - this includes:
+            - plans for communication
+            - hardware and software for managing and mitigating incidents
+            - policies in place  
+    - Identification:
+        - The point in the process that a security event is detected and reported 
+        - this may include indicators of compromise (IOC)
+    - Containment:
+        - Steps taking to prevent a security event from causing damage to the organization
+    - Eradication:
+        - Removing the security threat from an organization's systems
+        - eradicating malware
+        - disabling compromised accounts
+        - patching the vulnerability 
+    - Recovery:
+        - the act of ensuring the organizations systems are operating normally again after a security incident
+        - can include restoration from backup
+    - Lessons Learned:
+        - What the incident taught the organization about managing security in the future 
+        - should happen quickly after an incident and include all personnel 
+- **Exercises**:
+    - Tabletop:
+        - Stepping through the events that would occur during a potential security event or disaster without actually simulating 
+    - Walkthroughs:
+        - All parties actively go through the steps of the incident response plan 
+        - can help to identify gaps in the process
+    - Simulations:
+        - Testing incident response plans with a simulated security event or disaster 
+        - can indicate weaknesses or which personnel may need further training 
+- **Attack Frameworks**
+    - MITRE ATT&CK:
+        - Framework made by the MITRE corporation that lists possible methods attackers will use to exploit vulnerabilities  
+        - includes methods to mitigate the vulnerabilities 
+    - The Diamond Model of Intrusion Analysis:
+        - Framework designed by the US DOD to explain the interactions during a cyber incident 
+        - 4 corners of the model are all connected:
+            - advesary develops capabilities 
+            - capabilities exploit victims
+            - victims connect to infrastructure 
+            - advesary uses infrastructure
+    - Cyber Kill Chain:
+        - Attack framework laying out the 7 phases of a cyber attack
+        - Reconnaissance: attacker gathers intel 
+        - Weaponization: attacker develops exploit/payload
+        - Delivery: payload is sent to victims
+        - Exploitation: malicious code is executed 
+        - Installation: malware is insatlled 
+        - Command and control: attacker gains remote access 
+        - Actions on objectives: Attacker carries out objectives
+- **Stakeholder Management**:
+    - the relationship between IT providers and their clients
+    - communication needs to be established before an incident occurs and on an ongoing basis 
+    - security incidents can impact trust and reputation
+- **Communication Plan**:
+    - a list of parties who would need to contacted during a security incident or disaster and methods through which they can be reached
+    - can include, IT, CISO, PR, Legal and more
+- **Disaster Recovery Plan**:
+    - comprehensive set of steps the organization would take to recover from a disaster 
+    - hot/cold site locations
+    - restoration from backups  
+    - application restoration  
+- **Business Continuity Plan**:
+    - A plan for an organization resume functioning after an incident occurs that would disrupt business 
+- **Continuity of Operations Planning (COOP)**:
+    - Planning to recover from events that would disrupt systems and equipment required for the organization to operatie 
+    - alternative equipment that could be used to preform the same functions 
+- **Incident Response Team**:
+    - Dedicated team to manage and plan for security incidents or disaster 
+    - can be made up of internal personnel from different teams
+    - can be a third party who specializes in IR 
+- **Retention Policies**:
+    - Policy regarding the storage of data
+    - how long is it stored
+    - what backups are made
+    - where data/backups are kept
+    - regulations may force certain data to be kept for a specific length of time 
+### Given an Incident, utilize appropriate data sources to support an investigation
+- **Vulnerability Scan output**:
+    - vulnerability scan will detect what weaknesses exist on a system for an attacker to exploit
+    - false positives are marked as a vulnerability but are actually benign
+    - flase negatives are vulnerabilities that are not detected in a scan 
+- **SIEM dashboards**:
+    - Sensor:
+        - a piece of equipment that collects data to be sent to a SIEM
+    - Sensitivity:
+        - how data is sorted based on severity
+    - Trends:
+        - Patterns that occur accross collected data 
+        - new trends can indicate compromise
+        - behaviors that don't follow a trend are abnormal and can indicate compromise 
+    - Alerts:
+        - SIEMS can alert security teams to an ongoing security event 
+    - Correlation:
+        - Combining seperate data points to see how they commpare 
+- **Log Files**:
+    - Network:
+        - Network devices such as switches, routers, and firewalls create logs which can be sent to the SIEM
+        - these logs can show patterns in traffic across the network 
+    - System:
+        - Individual systems produce log files 
+        - processes running 
+        - updates 
+        - login attempts 
+        - user activity 
+    - Application:
+        - Log files can be application specific 
+        - user activity within an app 
+        - authentication attempts 
+        - API monitoring 
+    - Security:
+        - logs can provide detailed security information
+        - what traffic flows were allowed/denied
+        - IPS/IDS 
+        - DNS sinkholes 
+        - account lockouts/failed logins
+        - exploit attempts 
+    - Web:
+        - logs from webservers provide information about inbound traffic
+        - IP address 
+        - origin location 
+        - exploit attempts 
+        - access errors such as files that are not supposed to be publicly availible 
+    - DNS:
+        - Logs relating to domain name system
+        - IP of visited website
+        - dns sinkhole 
+        - attempts to resolve C2 servers 
+    - Authentication:
+        - Logs relating to authentication attempts
+        - who loged in when
+        - who failed to log in 
+        - IP of attempted logins 
+        - methods used to authenticate 
+    - Dump files: 
+        - the contents of a systems memory at a given point in time stored for review 
+        - can help debug applications 
+        - used in forensic investigations 
+    - VoIP and Call Managers:
+        - origin of calls 
+        - IP address
+        - length of calls 
+    - Sesssion Initiation Protocol (SIP) traffic:
+        - the setup process for Voip and call managers 
+        - inbound and outbound calls 
+        - unusual country codes 
