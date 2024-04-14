@@ -2199,3 +2199,122 @@ tags: []
         - Permissions can be set within the filesystem of an OS to determine which Users on a machine are authorized to take certain actions and access specific resources 
         - Windows uses group policies 
         - Unix systems assigns read, write and execute permissions to Owner, Group, and All Users, seperately for each file. 
+### 3.9 Given a scenario, implement public key infrastructure
+- **Public Key Infrastructure (PKI)**:
+    - Key Management:
+        - Private keys need to be stored, an HSM can store keys for a server 
+        - Key generation involves selecting a proper key size for the security needs
+        - keys are distributed and used to generate certificates for users, 
+        - Keys that are depreciated or compromised need to be revoked 
+        - Keys should be set to expire after a set period of time 
+    - Certificate Authority (CA):
+        - A centeral server that generates, distributes, and verifies keys in PKI
+    - Intermediate CA:
+        - A single centeral CA can create a single target or point of failure
+        - Intermediate CAs are established to create a hierarchical structure for managing certificates
+        - The root or main CA issues certificates to the intermediate CAs which can then verify 
+    - Registration Authority (RA):
+        - Entity seperate from the CA that is responsible for approving or denying the issuing of new certificates 
+    - Certificate Revocation List (CRL):
+        - List of certificates that are no longer valid
+        - can be used to check if a certificate has been depreciated and can no longer be used
+    - Certificate Attributes:
+        - A digital certificate verifies a specific public entity 
+        - it is a combination of this public key and a digital signature from the issuing CA
+        - the certificate allows users to trust that a public key actually belongs to the site or entity 
+    - Online Certificate Status Protocol:
+        - Standard for web browsers to check if the certificate for a web site is still valid 
+        - rather than download the entire CRL the browser communicates with a OCSP responder to determine if the certificate has been revoked or not  
+    - CN:
+        - Common name, the fully qualified domain name of a server that will be resolved to an IP address using DNS 
+        - only one will be included in a sites certificate 
+    - Subject Alternative Name:
+        - additional host names that can be included in a certificate that will resolve to the same website
+        - ex. www.google.com and google.com 
+    - Expiration:
+        - Certificates for websites are not permanent and expire after a set ammount of time
+        - the websites will need to renew their certificate to ensure that it is issued a new one
+- **Types of Certificates**:
+    - Wildcard:
+        - an asterisk ``*`` added to domains registered on a certificate in the subject alternative names field
+        - allows a certificate owner to add anything that replaces the asterisk in the domain name to be registered totheir certificate 
+        - example ``*.website.com`` would include ``fpt.website.com`` and ``test.website.com``
+    - Subject Alternative Name:
+        - allows the certificate owner to add multiple domains to their certificate 
+    - Code Signing:
+        - Certificates used by developers to digitally sign code they distribute 
+        - a computers operating system will then verify that the code originates from the certificate owner and is unchanged 
+    - Self-signed:
+        - Organizations can establish their own certificate authorities and create internal PKI 
+        - this allows for the organizations internal resources to have digital certificates for verification
+        - all devices will require internal CA to be installed on them
+    - Machine/Computer:
+        - certificates installed on devices for authentication to internal networks 
+        - can authroize access to specific resources based on the machine the certificate identifies 
+    - Email:
+        - Digital certificates attached to an email to verify the email originates from a specific sender and is unchanged
+    - User:
+        - Digital certificate used to identify a specific user
+        - can be used to authenticate 
+        - can be integrated into something like a smart card to verify the users identity 
+    - Root:
+        - Certificate used to identify the Root Certificate Authority 
+        - Used to verify all other certificates from intermediate CAs
+        - extremely important to secure in PKI 
+    - Domain Validation:
+        - Certificate used to verify ownership of a specific domain name 
+    - Extended Validation:
+        - certificate that verifies using additional checks that the owner owns the domain name 
+        - common for secure sites such as banking 
+- **Certificate formats**:
+    - X.509 is a standard format for digital certificates
+    - Distinguised Encoding Rules (DER):
+        - A set of rules for encoding data into binary
+        - used to encode a certificate into binary
+        - binary data is not human readable
+        - common with X.509 certificates
+        - common in java code signing 
+    - Privacy Enhanced Email (PEM):
+        - BASE64 encoded DER certificate 
+        - emails compress attachments meaning binary encoding may not work 
+        - PEM allows for the certificate to remain as ASCII characters and not be compressed by the email 
+    - Personal Information exchange (PFX):
+        - PFX is a microsoft file format for PKCS 12 certificate containers
+        - PFX can create a container that can store multiple X.509 certificates
+    - .cer:
+        - Windows file format for digital certificates
+        - can encode DEM or PEM formats 
+    - P12:
+        - the Public Key Cryptography Standard 12 (PKCS 12)
+        - PKCS 12 is an RSA standard which can create a container to hold multiple X.509 certificates
+        - .p12 is the file format
+        - often used to transfer a asymmetric key pair 
+    - P7B:
+        - .p7b is the file format for Public Key Cryptography Standard 7
+        - stores keys in ASCII form which can be easily transfered over email 
+- **Concepts**:
+    - Online vs Offline CA:
+        - The comproimse of a root CA would be extremely dangerous because an attacker can sign malicious certificates
+        - often the root CA is seperated from network to protect it from comproimse
+        - intermediate CAs will sign the certificates that are in use, limiting the scope of a potential compromise to a single intermediate CA 
+    - Stapling:
+        - checking Online certificate status protocol to check status of a certificate can take up resources and slow down connections
+        - to prevent constant checking, a local copy of the OCSP status is included on the web server and is refreshed with the CA regularly  
+        - stapling is adding the OCSP status from the local server into the inital SSL/TLS handshake so that a connection with the CA doesn't need to be made
+    - Pinning:
+        - Pinning is adding a certificate inside of the application
+        - the app then will verify this certificate with a CA during runtime
+        - the app can stop running if the certificate isn't valid 
+    - Trust Model:
+        - A single CA requires all users to trust the certificates issued by one CA
+        - A hierarchical trust model has a root CA issue certs to intermediate CAs which are trusted to issue certs. If the root CA is trusted so are the intermediaries 
+        - A web of trust is when users sign the certificates of other users, if you trust a users, and they trust another user, then you would trust that other user
+        - A mesh is when various CAs verify one another 
+        - mutual authentication establishes a trust relationship between both client and server 
+            - the server authenticates to a client and the client also authenticates to a server  
+    - Key Escrow:
+        - Storing encryption keys with a trusted third-party
+    - Certificate Chaining:
+        - A chain of trust is all the certificates issued between the server being communicated with and the root CA 
+        - a proper chain of trust will need to be verified or else a browser will consider a certificate invalid
+
