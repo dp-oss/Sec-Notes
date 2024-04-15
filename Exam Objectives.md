@@ -1537,8 +1537,8 @@ tags: []
     - Loop Prevention:
           - A loop is when the paths between devices creates a circle on the network and traffic is sent in a circle endlessly 
           - Spanning tree protocol:
-          - A protocol designed to analyze the topology of the network and strategically block ports to prevent a loop from occuring
-          - can also provide fault tolerance if a network device is down STP can change which ports are blocked to enable routing of traffic 
+            - A protocol designed to analyze the topology of the network and strategically block ports to prevent a loop from occuring
+            - can also provide fault tolerance if a network device is down STP can change which ports are blocked to enable routing of traffic 
     - Bridge Protocol Data Unit (BPDU) guard:
         - BPDU is the protocol that switches use in Spanning Tree to communicate with eachother, this is what allows STP to assess the network topology
         - Port fast was added to switches running STP to enable devices that aren't swtiches and that just need network connectivity to instantly connect to the network without being analyzed by the STP
@@ -2604,3 +2604,106 @@ tags: []
         - the setup process for Voip and call managers 
         - inbound and outbound calls 
         - unusual country codes 
+**syslog/rsyslog/syslog-ng**:
+    - Syslog:
+        - a standard method for sending log files 
+        - usually logs being sent to a SIEM
+        - labels logs with a facility code and severity level
+        - in linux syslog can run as a daemon which is a background process that typically starts with the machine
+    - rsyslog:
+        - a syslog daemon that increases performance 
+        - "rocket system for log processing"
+    - Syslog-ng:
+        - a popular syslog daemon that has options for filtering and other storage options
+- **Journalctl**:
+    - often log files are stored in a binary format which is better for storage but not human readable 
+    - journalctl is a method for querying binary log files to produce a human readable output
+- **NXLog**:
+    - A multiplatform log consolidator 
+    - acts like syslog 
+    - collects logs from different sources and aggregates and sends to SIEM
+- **Bandwith Monitors**:
+    - tools that measure the percentage of the network being used at a given point in time 
+    - can help to diagnose issues with the network and devices 
+- **Metadata**:
+    - metadata is data that describes other data
+    - Email:
+        - emails contain a header that includes metadata about the message itself
+        - origin IP 
+        - destination
+    - Mobile:
+        - photos take on a mobile phone will contain information about the location the photo was taken and the model of phone or camera 
+    - Web:
+        - visitng a website creates metadata such as 
+        - which browser is being used 
+        - which OS the user is running  
+        - IP address 
+    - **Netflow/sFlow**:
+        - Netflow:
+            - a standardized method of gathering statistics from network devices such as switches and firewalls 
+            - a well recognized standard that works well with multiple manufacturers
+            - Probes collect information and monitors network communications
+            - collectors receive and aggregate data from probes
+        - sFlow:
+            - Sampled Flow
+            - gathering statistics from only a portion of network traffic
+            - requires less resources and can be embedded into network infrastructure such as switches and routers
+            - useful for high traffic applications such as video streaming
+        - IPFIX:
+            - an updated standard based on netflow to gather statistics from network devices 
+            - allows administrators to create templates to determine exactly what data should be collected 
+- **Protocol Analyzer Output**:
+    - Protocol analyzers can capture and analyze packets sent accross the network 
+    - can allow for security controls to be put in place based on the type of traffic flowing over the network 
+    - can help identify unknown traffic 
+    - can be used to filter packets
+    - can provide a easy to read breakdown of individual packets 
+### 4.4 Given an incident, apply mitigation techniques or controls to secure an environment
+- **Reconfigure endpoint security solutions**:
+    - Application approved list:
+        - A list of applications that a user is allowed to install or execute
+        - prevents malicious applications from running on an endpoint
+        - applications not on the list cannot be installed or run
+    - Application blocklist/deny list:
+        - A list of applications that users cannot install or execute
+        - applications not on the list can be installed and run
+        - can prevent malicious or inappropriate apps from being run
+    - Quarantine:
+        - secure area in storage of a device where malicious software is held to later be analyzed
+        - software in quarentine can not be run 
+- **Configuration Changes**:
+    - Firewall rules:
+        - firewall rules and ACLs need to be updated as new threats emerge to block malicious traffic from traversing the network
+    - MDM:
+        - In the event of a security incident involving a mobile device, the MDM can be used to securely and remotely erase the device 
+        - the MDM can also automatically backup the devices data to prevent it from being lost if the device is lost and needs to be wiped
+    - DLP:
+        - DLP solutions are used to prvent PII or other sensitive data from being exfiltrated from the organization 
+    - Content filter/URL filter:
+        - URL filters can be used to prevent users from accessing maclicious domains  
+        - large blocklists of malicious domains are created and updated to be used by organizations 
+        - Content filters prevent users from accessing content that is against the policies of an organization
+    - Update or revoke certificates:
+        - In the event of a security incident or a compromised digital certificate, the CRL will be updated to invalidate the compromised certificate
+        - this means the certificate cannot be used maliciously to gain access to systems 
+- **Isolation**:
+    - Portions of the network can be isolated depedning on the security needs of the organization 
+    - Air gaps completely isolate a portion of the network from communicating with the rest of the network  
+    - individual processes on a device can be isolated to prevent a suspicous process from communicating over the network
+- **Containment**:
+    - Processes running on a machine can be containerized  to prevent a process from accessing other resources from the system that what is required for it to function 
+    - malicious software can be contained in a sandbox to be analzyed without causing damage to a system 
+- **Segmentation**:
+    - Different portions of the network can be segmented to control traffic moving between devices internally
+    - if an attacker were to gain access to the network this would limit the scope of a breach
+    - tools like VLANs are common for doing this
+- **SOAR**:
+    - Security Orchestration Automation and Response
+    - A framework for responding to security events in a standardized and efficient way 
+    - Runbooks:
+        - a pre-defined checklist of steps to be taken during a specific security event
+        - steps can be used to automate security responses
+    - Playbooks:
+        - a broader list of steps to take during a security event
+        - a combination of several runbooks 
+
