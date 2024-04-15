@@ -2706,4 +2706,16 @@ tags: []
     - Playbooks:
         - a broader list of steps to take during a security event
         - a combination of several runbooks 
-
+### 4.5 Explain key aspects of digital forensics
+- **Documentation/evidence**:
+    - Legal Hold:
+        - A legal requirement to acquire and preserve a specific piece of evidence
+    - Video:
+        - Video evidence can provide a moving record of a security event
+        - security camera footage can be preserve and analyzed later
+    - Admissibility:
+        - Wether or not something is able to be used as evidence in a court of law
+        - how the evidence was acquired can affect admissibility 
+        - different legal jurisdictions can affect admissibility
+    - Chain of custody:
+        - every single person who handles a piece of evidence over its lifespan
