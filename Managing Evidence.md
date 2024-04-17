@@ -39,7 +39,7 @@ Electronic discovery in the legal process
 
 ## Data recovery 
 Extracting missing data without affecting integrity 
-- process can very 
+- process can vary 
     - deleted
     - hidden
     - hardware/software corruption

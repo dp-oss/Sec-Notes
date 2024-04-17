@@ -29,7 +29,7 @@ Some data persists for longer than others
 - Connect to imaging device 
     - usualyy write-protected
 - Forensic Clone: 
-    - Bit for bit coy 
+    - Bit for bit copy 
     - preserves all data (even deleted) 
 ## Random Access Memory (RAM) 
 Can be a difficult targe to capture 
@@ -72,7 +72,7 @@ Extract the firmware of a device to help understand exploits
     - certain product/models have different firmware
 
 ## Snapshots 
-A point in tmie system image
+A point in time system image
 - often used with VMs 
 - can show incremental updates 
 - often done between updates 

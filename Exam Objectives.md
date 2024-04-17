@@ -1132,7 +1132,7 @@ tags: []
         - quantum communications uses this fact to distribute keys securely because intercepting the encryption key would change it 
     - Computing:
         - Computing based on quantum mechanics instead of classical mechanics
-        - instead of normal bits which have a state of 1 or 0 quantum bits or qbits can be anywhere between 1 and zero
+        - instead of normal bits which have a state of 1 or 0, quantum bits (qubits) can be anywhere between 1 and zero
         - due to this quantum computers are signiciantly more powerful than standard computers
         - this means they'll be able to brute force encryption algorithms much faster than a regular computer
 - **Post-quantum**:
@@ -2719,3 +2719,129 @@ tags: []
         - different legal jurisdictions can affect admissibility
     - Chain of custody:
         - every single person who handles a piece of evidence over its lifespan
+        - it's important to keep the chain of custody well documented to ensure evidence hasn't been tampered with 
+        - hashes can be used to verify the integrity of evidence over the course of an investigation
+    - Timelines of sequence of events:
+        - Time Stamps:
+            - file meta data about last modification or viewing
+        - Time offset:
+            - it's important to record the locale and timezone settings of the OS 
+            - offsets can change how the timestamp for a file is recorded
+            - different file systems may do this in the local timezone or a default for the file system
+    - Tags:
+        - tags are labels given to each piece of collected evidence to record information 
+        - can include:
+            - timestamp
+            - time collected
+            - method used to collect
+            - location 
+    - Reports:
+        - When all evidence is collected a report of the findings needs to be made
+        - details what methods were used to acquire evidence
+        - sums up the most important evidence and will analyze the findings 
+    - Event Logs:
+        - OS will record logs of events from the system
+        - its important to collect these event logs during an investigation
+        - will reveal information about the use of the system 
+        - /var/log in linux
+        - use event viewer in Windows
+    - Interviews
+        - Interviews with individuals involved in the security event
+        - a first hand account of the event
+        - important to document and record the interview for further review
+- **Acquisition**:
+    - Order of volatality:
+        - the ammount of time a piece of data would persist on the system 
+        - the more volatile data will persist for a shorter ammount of time and should be collected first
+        - CPU cache and ram are some of the most volatile 
+        - Backup tapes or disk is less volatile
+    - Disk:
+        - To collect exactly what is on a disk a disk image can be made
+        - an image can be a bit for bit recreation of the data stored on the disk
+        - allows for analysis after the fact
+        - even files the OS marked as deleted
+    - Random-access memory (RAM):
+        - Ram is the computers short term working memory 
+        - data in ram is usually being processed
+        - a dump of the data in ram can be saved for further analysis
+        - things such as browser or command history may be stored in ram
+    - Swap/pagefile:
+        - Swap in linux refers to disk space designated as short term working memory for when the ram fills up 
+        - this can be dumped like ram 
+    - OS:
+        - The OS can provide important information about the state of the system at the time of collection
+        - this data is usally captured in the drive image 
+        - can include things such as:
+            - logged in users
+            - open ports
+            - running processes 
+            - configuration changes 
+            - etc. 
+    - Device:
+        - often mobile devices will contain device specific data that can be captured in a disk image
+        - call logs on a cell phone for example 
+        - contacts, text, images, apps, etc. 
+    - Firmware:
+        - firmware is low level software written directly on a machines hardware 
+        - can be captured to provide more information about a device 
+        - firmware can be unique to each device unlike an OS 
+        - can help show things like rootkits which are installed at a lower level than the OS 
+        - may have real-time data that was sent to the device  
+    - Snapshot:
+        - snapshot is an image of a system at an exact  point in time
+        - often used in VMs 
+    - Cache:
+        - Cache is temporary storage used to speed up accessing data repeatedly
+        - many types of cache exist:
+            - CPU
+            - Disk
+            - Browser
+        - can be more or less volatile depending on the type but is generally pretty volatile
+        - Browser cache may be more long lived 
+        - CPU cache is very volatile 
+    - Network:
+        - recorded network traffic can be valuable forensic evidence
+        - packets
+        - inbound and outbound connections
+        - large networks will often capture and store raw network data
+    - Artifcats:
+        - data uninetentionally left on a system
+        - file systems will mark 'deleted' files to be over written but will not necessarily overwrite this data
+        - artifacts can commonly be found on the disk image
+- **On-premises vs cloud**:
+    - Right-to-audit clauses:
+        - an agreement with cloud providers allowing a customer to audit their own data  
+        - a contract that should be verified before a breach occurs to protect the organization
+    - Regulatory/jurisdiction:
+        - regulations in different locations will determine the laws for capturing and storing evidence
+        - some jurisdictions such as the EU are protected with regulations like GDPR that doesn't allow data to leave their borders 
+        - its important to note these regulations before the use of a cloud provider in this jurisdiction 
+- **Integrity**:
+    - Hashing:
+        - The hashing of forensic evidence upon collection can provide verification of its integrity 
+        - if the evidence is altered the hash will not be the same as when it was collected 
+    - Checksums:
+        - a simple integrity check used to verify data remains unchanged in transit
+        - not designed to replace a hash
+    - Provenance:
+        - Documentation about the authenticity of evidence 
+        - can use blockchain technology to verify the chain of custody for evidence  
+- **Preservation**:
+    - storing and protecting collected evidence
+    - it's important to keep multiple backups 
+    - important to document everything that happens to evidence and ensure it's integrity to have the best admissibility in court 
+- **E-discovery**:
+    - part of the legal process in which specific evidence is requested and required to be collected nad saved
+- **Data Recovery**:
+    - The process of collecting data that may have been 'deleted'
+    - typically files are marked as 'deleted' but not over written in the file system
+    - forensic tools can be used to recover these files 
+- **Non-repudiation**:
+    - Non-repudiation is proof of the origin of data
+    - when verified mathemattically there is no way to deny the origin of the data
+    - message authentication codes (MAC) is used during a conversation to verify non-repudiation between the two parties
+    - digital signatures can be used to publicly verify non-repudiation
+- **Strategic Intelligence/Counterintelligence**:
+    - Strategic intelligence analyzes the threat landscape for a specific domain to determine what threatens the security posture
+    - strategic Counterintelligence is intelligence collected on a specific threat in order to prevent that threat from collecting intelligence on the organizations assets or domain 
+
