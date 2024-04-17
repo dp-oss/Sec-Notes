@@ -2844,4 +2844,266 @@ tags: []
 - **Strategic Intelligence/Counterintelligence**:
     - Strategic intelligence analyzes the threat landscape for a specific domain to determine what threatens the security posture
     - strategic Counterintelligence is intelligence collected on a specific threat in order to prevent that threat from collecting intelligence on the organizations assets or domain 
+## 5.0 Governance, Risk, and Compliance
+### 5.1 Compare and contrast various types of controls
+- **Category**:
+    - Managerial:
+        - Manegerial controls focus on the design and implementation of security
+        - things such as policies and procedures the organization follows
+    - Operational:
+        - Operational security controls are those implemented by the personnel of an organization
+    - Technical:
+        - Technical controls are security controls implemented using systems
+        - things like door locks, alarms, and firewalls are technical controls
+- **Control Type**:
+    - Preventive:
+        - Security controls that prevent or stop a threat to security 
+    - Detective:
+        - Security controls that alert to a security threat
+    - Corrective:
+        - Security controls that correct a flaw or vulnerability 
+    - Deterrent:
+        - Controls that would encourage an attacker to not exploit a vulnerability 
+    - Compensating:
+        - controls that mitigate the effects of an active threat to security
+    - Physical:
+        - improve the physical security posture of the organization and it's facilities  
+### 5.2 Explain the importance of applicable regulations, standards, or frameworks that impact organizational security posture. 
+- **Regulations, standards, and legislation**:
+    - General Data Protection Regulation (GDPR):
+        - legislation in the EU that provides it's residents and their data with certain assurances
+        - data collected from the EU must remain in the EU 
+        - Limitations on what can be done with the data of EU citizens
+        - provides rights about communication and the ability to request deletion of data
+    - National, territory or state laws:
+        - different countries, territories, and states/provinces will have different regulations
+        - it is up to the organization to remain compliant with these regulations if they plan on doing business in this jurisdiciton
+    - Payment Card Industry Data Security Standard (PCI DSS):
+        - Regulations from the banking and payment industry regarding the way credit/debit transactions need to be handled and secured
+        - the goal is to secure cardholder data and the networks/systems used to transfer this data
+- **Key Frameworks**:
+    - Center for internet security (CIS):
+        - Organization of IT professionals who publish working standards to be implemented by other IT professionals
+        - features 20 key actions
+    - National Institute of Standards and Technology (NIST) Risk Management Framework (RMF) / Cyber Security Framework (CSF):
+        - NIST RMF:
+            - Mandatory framework for managing security risk used by all US federal agencies
+            - A 6 step process: 
+                1. Categorize 
+                2. Select 
+                3. Implement 
+                4. Assess 
+                5. Authorize 
+                6. Monitor 
+        - NIST CSF:
+            - cybersecurity framework designed by NIST to be implemented by commercial organizations
+            - Framework has 3 areas:
+                - Framework Core
+                - Implementation Tiers 
+                - Framework Profile 
+    - International Organization for Standardization (ISO) 27001/27002/27701/31000:
+        - set of standard practices for international organizations
+        - 27001:
+            - Standard for information security management system (ISMS)
+        - 27002:
+            - code of practice for information security controls 
+        - 27701:
+            - Privacy Information Management Systems (PIMS) 
+        - 31000:
+            - International standards for risk management practices 
+    - SSAE SOC 2 Type I/II:
+        - Security audits implemented by the institute of certified public accountants  
+        - help assess the security posture of an commerical organization 
+        - Type I:
+            - A single audit of all the security controls within an organization at what 
+        - Type II:
+            - an ongoing audit of an organizations security usually over a period of at least 6 consecutive months
+    - Cloud Security Alliance(CSA):
+        - The CSA is an organization that publishes standards and best practices for maintaining security in cloud enviornments
+    - Cloud Control Matrix:
+        - CSA defined standards, regulations, and best practices for securing a cloud enviornment 
+    - Reference Architecture:
+        - tools for implementing cloud security controls provided by the CSA
+- **Benchmarks/Secure configuration guides**:
+    - Platform/vendor specific guides:
+        - Web server:
+            - Web servers are public facing meaning hardening is crucial to maintain security
+            - always configure SSL/TLS encryption for webserver communications
+            - run webservers from a non privilged service account
+        - OS:
+            - Hardening needs to be done at the operating system level
+            - always apply security patches
+            - configure accounts with proper premissions, and strength/complexity/history rules for passwords
+            - monitor and secure with IDS/IDP and anti-malware/anti-virus
+        - Application Server:
+            - application servers are often needed for an app to function these servers are an asset that needs to be hardened
+            - always apply latest updates and security patches
+            - ensure secure coding techniques are being used
+            - apply proper privileges and premissions 
+            - audit API requests
+        - Network Infrastructure Devices:
+            - Network devices are the hardware backbone of the network infrastructure and need to be properly hardened
+            - always apply the latest security patches from the vendor 
+            - ensure proper authentication is setup 
+### 5.3 Explain the importance of policies to organizational security
+- **Personnel**:
+    - Acceptable use policy:
+        - policy determining what users are allowed and not allowed to do with systems
+    - Job rotation:
+        - Policies mandating that personnel rotate through different roles in the organization
+        - prevent only one person from being able to do certain tasks
+        - help determine if someone is exploiting their role 
+    - Mandatory Vacation:
+        - Policy requiring personnel to take time off from work
+        - helps to determine if someone is commiting fraudulent activities as they have to step away from their position and the fraud may stop during that period
+    - Seperation of duties:
+        - policy requiring important tasks to be split amongst several personnel 
+        - this prevents any one person from having too much control 
+    - Least Privilege:
+        - Principle stating that users should only be given the privileges and premissions required to preform their job 
+    - Clean desk space:
+        - Clean desk policies require that any documents or data on a desk needs to be removed when the person finishes their work
+        - this prevents any physical data from being lost or stolen
+    - Background Checks:
+        - it is important to verify the background of any new personnel before they are onboarded
+        - this can help catch malicious actors attempting to acquire a role at the organization
+        - some regulations play into this as different jurisdictions have policies regarding what a background check can entail
+    - Non-disclosure agreement (NDA):
+        - a legal document requiring a person or entity from sharing information defined in the document
+        - creates a legal deterent from leaking sensitive information
+    - Social Media Analysis:
+        - Reviewing the social media of personnel can help paint a picture of their background and can weed out bad actors from potential candidates
+    - Onboarding:
+        - The entire process of hiring new personnel
+        - interviews
+        - background checks
+        - social media analysis
+        - training 
+    - Offboarding:
+        - The process taken when personnel leave the organization
+        - relinquish control of company data/assets
+        - can involve NDA
+        - revoke access to systems and resources
+    - User training:
+        - Gamification:
+            - Turning training exercises into a game to make it more enjoyable for personnel 
+        - Capture the flag:
+            - Security training in which the red team will attempt to gain access to a system (the flag) while the blue team will attempt to secure it
+        - Phishing Campaigns:
+            - Phishing simulations:
+                - sending out phishing emails or messages to personnel in order to determine how effective an actual phising campaign would be in the organizations
+                - can help determine which personnel need further training
+        - Computer-based training (CBT):
+            - training that can be conducted digitally instead of in person or using physical materials such as books or pamphlets
+        - Role-based training:
+            - As personnel switch roles in the organization they will need to undergo further training to effectively fill their new positions
+- **Diversity of training techniques**:
+    - It is important  to implement a diverse array of training methods to ensure that all personnel are effectively trained 
+- **Third-party risk management**:
+    - Vendors:
+        - Vendors that the organization purchases from need to be heavily vetted to ensure they will not introduce security risks with their products
+        - it's important to have a diverse set of vendors to prevent failure if a vendor shuts down or is compromised
+    - Supply Chain:
+        - The supply chain is all the organizations required to produce a certain asset
+        - the security of the supply chain is hard to verify as it may not be feasible to verify the vendor of your vendor 
+        - A supply chain attack compromises one organization up the supply chain to leverage access into organizations that are further down this chain 
+    - Business partner:
+        - A business partner is another organization closely tied to your organization to produce a product or service
+        - if resources and data are shared between business partners it needs to be agreed upon before hand and done so securely
+        - providing partners access to resources and facilities requires proper security controls in place, auditing, authorization, and authentication
+    - Service Level Agreement (SLA):
+        - the SLA defines the terms between a vendor or supplier and your organization
+        - how support will be provided
+        - how quickly the vendor will respond to outages 
+        - minimum ammount of uptime 
+    - Memorandum of Understanding (MOU):
+        - Not legally binding but an agreement between two organizations defining the terms of their involvement with one another 
+        - helps both sides define what will be accomplished in their work together  
+    - Measurement Systems Analysis (MSA):
+        - Assess the quality of systems that collect and measure data
+        - will define the uncertainty of measurement data collected by these systems 
+    - Business Partnership Agreement (BPA):
+        - pre-defined terms for organizations entering a commercial partnership
+        - who owns what data 
+        - financial split
+        - contingency planning 
+    - End of Life (EOL):
+        - Statement from vendors who will not be producing a product or service 
+        - may define how the vendor will continue to support the product or service for a limited ammoutn of time
+    - End of Service Life (EOSL):
+        - Statement from vendors who will no longer be supporting a product or service 
+        - important for security because there will be no more security patches or updates
+    - NDA:
+        - Non-disclosure agreement 
+        - agreement between two parties that information will not be shared with outside parties 
+- **Data**:
+    - Classification:
+        - categorization of data
+        - States the sensitivity of data
+        - This can determine how the data is handled
+        - Examples include:
+            - PII 
+            - PHI
+            - Property
+            - Public/unclassified
+            - Private/classified
+            - sensitive 
+            - restricted 
+            - confidential
+    - Governance:
+        - policies, processes, regulations associated with data
+        - data steward is the person in an organization responsible for managing governance 
+        - ensuring compliance to local regulations
+    - Retention:
+        - policies regarding how long data is kept for 
+        - can be required be regulations in fields such as financial and legal
+        - can influence how long backups are kept
+- **Credential Policies**:
+    - Personnel:
+        - Policies for accoutns assosciated with a specific user
+        - Operating systems identify users with unique user ID
+        - User accoutns should operate with the least possible privilege 
+        - should be the default credentials everyone uses to access the network even IT administrators
+    - Third-parties:
+        - Policies for accounts given to a trusted third party such as a vendor
+        - don't allow third-parties to share accoutns this makes auditing system access hard
+        - additional security controls need to be placed upon access from those outside of the organization
+    - Devices:
+        - policy for device specific accounts such as a mobile device 
+        - screen lock out after the device is unused
+        - authentication factors  
+        - device specific certifiactes
+        - assosciate the device with a specific user to increase auditability
+    - Service Accounts:
+        - policies for accounts that are used to provide a running process such as a databse or web server access to a system
+        - not used for regular users 
+        - important to ensure proper premissions 
+    - Administrator/root accounts:
+        - Policies for accoutns with elevated system access
+        - important that these accounts are only used when strictly necessary
+        - all actions should be well documented
+        - strong passwords with scheduled changes
+        - Multi factor authentication 
+- **Organizational Policies**:
+    - Change Management:
+        - Changes to IT enviornment can create risks for the security of an organizations assets
+        - change management seeks to provide policies for the process of making these changes 
+        - documentation
+        - frequency of changes 
+        - duration of change
+        - fail-safes
+    - Change Control:
+        - the formal process for making changes to the IT enviornment
+        - determine scope and risks of change
+        - create a plan
+        - get approval from end users
+        - a change control board is a group who determines if a change is approved
+        - have a plan to rollback changes  
+    - Asset Mangament:
+        - The process of documenting and keeping track of an organizations assets
+        - this process can be automated
+        - keep track of the hardware 
+        - keep track of software licenses 
+        - ensure all devices and software are up to date
+
 

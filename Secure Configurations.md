@@ -15,7 +15,7 @@ One of the most common servers on the internet
 - Secure configuration
     - prevent information leakage
     - premissions
-        - run from a non privileged accoutn
+        - run from a non privileged account
     - configure SSL:
         - manage and install certificates
     - Log Files
@@ -31,7 +31,7 @@ Many and varied operating systems
     - premissions 
 - Network access and security
     - limit network access
-- monitro and secure
+- monitor and secure
     - antivirus/malware
 
 ## Application Server 

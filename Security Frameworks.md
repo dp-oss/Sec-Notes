@@ -50,7 +50,8 @@ International Organization for Standardization and International Electrotechnica
 - ISO/IEC 27002
     - Code of practice for information security controls 
 - ISO/IEC 27701 
-    - Privacy Information Management Systems (PIMS) - ISO 31000
+    - Privacy Information Management Systems (PIMS) 
+- ISO 31000
     - International standards for risk management practices 
 - all international standards
 
