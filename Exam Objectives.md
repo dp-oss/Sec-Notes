@@ -6,7 +6,9 @@ tags: []
 ---
 
 # Exam Objectives
+*Every concept that will be on the 601 exam, according to comptia, explained to my own understanding. This can be a helpful cheat sheet but, please note that this is based on my own understanding of the concepts and shouldn't be treated as official documentation. Please excuse spelling and grammar, I don't use a spell check.* 
 
+*I would reccommend going to https://www.comptia.org/training/resources/exam-objectives and downloading a copy of the objectives for yourself, to test your own understanding.*  
 ## 1.0 Threats, attacks and Vulnerabilities
 ### 1.1 Compare and contrast different types of social engineering techniques
 - Phishing:
