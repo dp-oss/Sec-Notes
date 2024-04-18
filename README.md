@@ -11,6 +11,8 @@ Thank you to **Professor Messer**. All notes are based on his free training cour
         https://obsidian.md/
 - Please note that my notes are not intended to replace official Comptia study materials, I would reccomend taking your own notes on Messer's course and only using these for quick reference 
 - the 601 is scheduled to retire July 31st of this year, keep this in mind when planning your studying as these might not be helpful if you plan on taking the exam beyond that date
+- Please excuse my spelling and grammar I don't use spell check
+- I reccomend checking out https://github.com/dp-oss/Sec-Notes/blob/main/Exam%20Objectives.md first for an overview of everything that will be on the exam
 
 **Best of luck and happy studying :)**
 
