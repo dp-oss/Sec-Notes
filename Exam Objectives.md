@@ -3232,6 +3232,121 @@ tags: []
     - Site risk assessment:
         - Every time the organization moves to a new site, or operates from an additional facility a unique asessemnt of the risk specific to that facility and the surrounding geographical area needs to occur 
         - DRP and Risk Assesment will not be the same at all locations 
-
+### 5.5 Explain privacy and sensitive data concepts in relation to security 
+- **Organizational consequences of privacy and data breaches**:
+    - Reputation Damage:
+        - Leaking the information of clientel would result in the loss of trust 
+        - this will impact business
+        - if the company is publicly traded this will result in a decrease in stock price
     
-
+    - Identity Theft:
+        - Leaking PII of clientel will result in the information being used by bad actors to commit identity fraud
+        - as a result in the US many companies who suffer from breaches are required to finance Identity Protection/monitoring services for the victims of their breach 
+    - Fines:
+        - Along with paying for identity monitoring, organizations will often be sued in class action lawsuits, or simply fined by the  government for not handling PII, and PHI properly in the event of a breach 
+    - IP theft:
+        - If intellectual property such as trade secrets are exfiltrated from the organization then the company will lose a competitive advantage in the market and incur financial losses as a result 
+- **Notications of breaches**:
+    - Escalation:
+        - After a breach is occured notifcation needs to be escalated first internally through personnel with higher positions in the organization, and potentially to government, legal, and law enforecement external to the organization
+    - Public notifications and disclosures:
+        - After a breach occurs the impacted parties need to be informed, and possibly the public as a whole 
+        - often times a public disclosure is done to inform the general public and media in a controlled manner 
+        - There are often legal requirements about how soon after discovery an organization needs to inform victims of a breach
+- **Data Types**:
+    - Classifications:
+        - Public:
+            - Public data is widely availible and not private
+        - Private:
+            - data only intended to be viewed by selected parties and individuals 
+            - may requires an NDA
+        - Sensitive:
+            - specific data that could impact an individual or entity if it were leaked
+            - PII
+            - PHI
+            - IP
+        - Confidential:
+           - very sensitive data
+           - approval required to view
+        - Critical:
+            - data that is important 
+            - always needs to be availible 
+        - Proprietary:
+            - data that is property of an organization
+            - trade secrets
+            - IP
+        - Personal Identifiable Information (PII):
+            - Data unique to a specific individual
+            - if this data were leaked the individuals identity could be stolen
+        - Health Information:
+            - PHI
+            - health and medical data specific to a single individual
+            - protected by HIPPA
+        - Financial Information:
+            - data regarding financial transactions
+            - payment information of customers
+            - ledgers, tax information, salaries
+            - card information is protected by PCIDSS
+        - Government Data:
+            - data collected by the government
+            - shared between government agencies
+            - can be open and public
+            - can be closed 
+            - can require clearance to view
+        - Customer Data:
+            - data assosciated with a specific customer of a business
+            - can include PII 
+            - can be protected with regulations
+- **Privacy Enhancing Technologies**:
+    - data minimization:
+        - data collection seeking to collect the minimum ammount of data to complete a task
+    - Data masking:
+        - covering up a portion of sensitive data so that it is not revealed unecessarily 
+        - showing only the last 4 numbers of a credit card on the receipt for example 
+    - Tokenization:
+        - Replacing sensitive data with a non sensitive place holder 
+        - unlike hashing the placeholder and the original data are not linked mathemattically
+        - common for mobile payments, a token is sent instead of the actual card number 
+    - Anonymization:
+        - Removing identifiable information from data so that it can be used without being linked to a specific individual
+        - can be used to remove identifiable information from medical data, allowing studies in medical trends without exposing a specific individual
+    - Pseudo-anonymization:
+        - Replacing identifiable information with a pseudonym to avoid linking data to a specific individual
+- **Roles and Responsibilities**:
+    - Data owner:
+        - The individual responsible for the data 
+        - the treasurer is the data owner of an organizations financial data for example
+    - Data Controller:
+        - The individual tasked with deciding how data will be processed
+    - Data processor:
+        - The individual tasked with processing data on behalf of the controller
+    - Data custodian/steward:
+        - The individual responsible for ensuring the data is being managed and processed properly
+        - compliance to regulations
+        - accuracy 
+        - privacy
+        - security 
+        - labels sensitivity
+        - manages authorization 
+    - Data protection officer (DPO):
+        - higher level position within the organization specifically assigned to manage the data privacy of the entire organization
+        - implement policies and procedures surrounding data collection, processing, and management 
+- **Information Life Cycle**:
+    - the process of collecting and using data in the organization 
+    1. Collection
+    2. Distribution
+        - sorting and storage
+    3. Use
+    4. Maintenance
+    5. Disposition
+        - disposing of data 
+- **Impact Assessment**:
+    - an audit of how the organizations data processes will affect the privacy of data 
+    - helps to prevent breaches and leaks before they occur 
+    - displays to customers that data privacy is of importance to the organization
+- **Terms of agreement**:
+    - legal agreement between a service provider and client 
+    - signed or acknowledged before the exchange of a service 
+    - also known as terms of service 
+- **Privacy Notice**:
+    - statement from an organization to their customer specifically regarding how data will be collected, processed and managed  
