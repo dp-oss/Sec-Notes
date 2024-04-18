@@ -3105,5 +3105,133 @@ tags: []
         - keep track of the hardware 
         - keep track of software licenses 
         - ensure all devices and software are up to date
+### 5.4 Summarize risk manangment processes and concepts 
+- **Risk Types**:
+    - External:
+        - Risk orgininating from outside the organization
+        - outside threat actors or natural disasters are examples of this
+    - Internal:
+        - Risks originating from within the organization 
+    - Legacy Systems:
+        - Systems that are no longer supported by the manufacturers and thus don't receive security patches or updates
+    - Multiparty:
+        - Risk originating from multiple third-parties working with the organization
+    - IP Theft:
+        - Intellectual property such as trade secrets are valuable to the organization and can be stolen for advantage and monetary gain
+    - Software compliance/licensing:
+        - Close sourcecd software is purchased or licensed by a company to be used and supported 
+        - a risk is having too few licenses for personnel to fufill their duties
+        - or over purchasing liscenses can lead to financial loss
+- **Risk Management Strategies**:
+    - Acceptance:
+        - determing the ammuont of risk assosciated with an action is justified and continuing to take the action
+    - Avoidance:
+        - Managing risks by avoiding taking an action that could result in that risk
+        - Air gap a network to avoid network risks on that network
+    - Transference:
+        - Transfering the risk to a third party so that it is not incurred by the organization
+        - Cybersecurity Insurance:
+            - A common method of transference is the purchase of insurance
+            - you pay a cybersecurity insurance company an ongoing fee
+            - in return the insurance company will handle the financial consequences associated with a damage caused by cybersecurity risks
+    - Mitigation:
+        - Taking steps to lessen the affect or reduce the liklihood of damage from risks
+        - installing a sprinkler system mitigates the risk of a fire spreading 
+- **Risk analysis**:
+    - Risk Register:
+        - the process of identifying risks assosciated with a project or action
+    - Risk matrix/heat map:
+        - a visual representation of risks with the color indicating severity of risk  
+        - helps map out the risk landscape for decision making
+    - Risk Control Assessment:
+        - Auditing risk management strategies and their efficacy 
+    - Risk Control self-assessment:
+        - Reporting on one's own risk management strategies and security controls 
+        - this report is shared within the organization and helps determine if risk management was successful and where the gaps in security remain
+    - Risk Awareness:
+        - An ongoing process of keeping personnel informed on existing risks, emerging risks, and changing risks
+        - Inforamtion security is a rapidly changing landscape
+        - risk affects all members of the organization and thus awareness expands beyond the IT department
+    - Inherent Risk:
+        - The risk that exists from normal operations 
+        - typically the risk that exists in the abscence of security controls 
+        - liklihood + impact = inherent risk 
+    - Residual Risk:
+        - The risk remaining after security controls are applied 
+        - inherent risk + effectiveness of controls  
+    - Control Risk:
+        - Risk assosciated with security controls that fail or are ineffective 
+    - Risk Appetite:
+        - The ammount of risk the organization is willing to take 
+        - if an action has risk that the organization is not willing to take, or can not mitigate, transfer or avoid the risk, then the organization will not take t his risk 
+    - Regulations that affect risk posture:
+        - Certain regulations affect the risk posture of an organization
+        - regulations may require an organization to mitigate and avoid specific risks 
+        - HIPPA protects the PHI of individuals, organiations handling PHI are required by law to placer certain controls on this data and avoid certain risks all together
+        - PCIDSS protects payment card information and requires organizations processing card payments to have specific controls in place to mitigate risks assosciated with transfering this data
+        - GDPR requires organizations collecting or handling the data of EU citizens to avoid risks such  as storing the data outside of the EU 
+    - Risk assessment types:
+        - Qualitative:
+            - impact of risks that are not measured with numbers
+            - for example loss of reputation
+        - Quantitative:
+            - Impacts of risk directly measured with numbers
+            - monetary loss for example 
+    - Likelihood of occurrence:
+        - A quantitative measurement of how likely it is for a risk to impact the organization 
+    - Impact:
+        - the effect a risk can have on the organization if it were to occur 
+    - Asset Value:
+        - The monetary value an asset produces for the organization 
+        - not only the cost of the asset itself 
+        - also the profits the asset produces for the organization
+        - the loss of the asset would result in the loss of these profits as well as the value of the asset itself 
+    - Single-loss expectancy (SLE):
+        - Quantitative assessment of financial impact if a risk occurs once
+        - for example if one hard drive fails it will cost $40 to replace
+    - Annualized Rate of Occurrence (ARO):
+        - The ammount of times a risk will impact the organization in a single year
+        - for example 5 hard drives broke last year
+    - Annualized loss expectancy (ALE):
+        - ARO * SLE
+        - The ammount of loss resulting from risks over a full year
+        - For example: 5 hard drives broke last year and each one costs $40 to replace, the ALE will be $200 
+- **Disasters**:
+    - Enviornmental:
+        - Disasters that occur naturally such as tsunami, hurricane, tornado, etc.
+    - Person-made:
+        - Disasters caused by people, such as arson, or nuclear bombing  
+    - Internal vs. External:
+        - Internal disasters are caused by an organizations personnel, this can be a fire, or accidental erasure of all the systems
+        - External disasters are caused either naturally or by individuals beyond the scope of the organization like a hurricane
+- **Business Impact Analysis**:
+    - Recovery Time objective (RTO):
+        - The period of time the organization plans to return to normal operations after a disaster or threat occurs 
+    - Recovery Point Objectives (RPO):
+        - The point of restoration where the organization considers a system operational 
+    - Mean time to repair (MTTR):
+        - The average ammount of time it takes to return a system to an operational state
+    - Mean time between failures (MTBF):
+        - The average period of time between the system failing 
+    - Functional Recovery Plans:
+        - step by step plan for recovering systems to an operational state
+    - Single Point of failure:
+        - A system within the organization that has no redundancy or backups. 
+        - If this system fails there is nothing to return to normal operation until this system is recovered
+        - these are best avoided 
+    - Disaster Recovery Plan (DRP):
+        - The plan to return to an operational state after a disaster occurs 
+        - hot/cold/warm sites
+        - backup locations 
+        - cloud alternatives
+    - Mission Essential Functions:
+        - Portions of a system required for the organization to operate 
+        - this is the first thing that should be planned for recovery in the event of disaster 
+    - Identification of critical Systems:
+        - The process of tracking what systems are providing mission essential functions for the organization
+    - Site risk assessment:
+        - Every time the organization moves to a new site, or operates from an additional facility a unique asessemnt of the risk specific to that facility and the surrounding geographical area needs to occur 
+        - DRP and Risk Assesment will not be the same at all locations 
 
+    
 

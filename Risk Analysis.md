@@ -20,9 +20,9 @@ tags: []
 ## Audit risk model
 - Inherent Risk
     - Impact + liklihood
-    - risk taht exists in the absence of controls
+    - risk that exists in the absence of controls
     - some models include existing controls
-- Residualt risk
+- Residual risk
     - Inherent risk + control effectiveness
     - risk that exists after controls
 - Risk Appetite
